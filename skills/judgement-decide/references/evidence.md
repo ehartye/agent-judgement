@@ -21,7 +21,8 @@ than results about people.
 
 | Step | Found | How | Source |
 | ---- | ----- | --- | ------ |
-| Views before the model speaks | Analysts' choices matched the agent's planted lean 86% of the time; 77% reused its argument and 15% credited it | Experiment, 50 analysts, Claude Opus 4.8 (vendor study) | [Anthropic 2026](https://www.anthropic.com/research/agents-judgment-calls) |
+| Views recorded before the model speaks | Analysts' choices matched the agent's planted lean 86% of the time; 77% reused its argument and 15% credited it. Without a first view on record nobody can see that happen | Experiment, 50 analysts, Claude Opus 4.8 (vendor study) | [Anthropic 2026](https://www.anthropic.com/research/agents-judgment-calls) |
+| Ask later which fact moved you | Of people with a stated view, 60% switched when the agent disagreed and 6% when it agreed; in a trial, putting people first or the model first made no significant difference (3.0 points, p = 0.22) | Experiment, Claude Opus 4.8 (vendor study); trial, GPT-4 | [Anthropic 2026](https://www.anthropic.com/research/agents-judgment-calls), [Everett et al. 2026](https://www.nature.com/articles/s41746-026-02545-1) |
 | Alone, then compared | Structured anonymous rounds beat ordinary groups five studies to one; sharing reasons helped, sharing averages alone did not | Review | [Rowe and Wright 2001](https://gwern.net/doc/statistics/prediction/2001-rowe.pdf) |
 | Count agreement reached before talking | Talking after independent judging left accuracy at 62% (63.0 to 62.2) and raised confidence from 65.8 to 71.1 | Experiment, 127 people | [Carro et al. 2026](https://arxiv.org/abs/2610.28539) |
 | Trust a gut feeling only with practice and quick feedback | Skilled intuition needs regular cues and "feedback that is both rapid and unequivocal"; feeling sure is not a sign of being right | Joint paper by two rival schools | [Kahneman and Klein 2009](https://doi.org/10.1037/a0016755) |
@@ -45,7 +46,7 @@ than results about people.
 | Open the source, not the note about it | After a step was logged as done but had failed, decision models still went ahead 53% to 100% of the time | Benchmark, 4 models, 2026 | [Khezresmaeilzadeh et al. 2026](https://arxiv.org/abs/2610.25947) |
 | Gather apart, then compare side by side | Gathering blind before sharing added 3.8 points; 58% of wrong answers had already had the right one in hand | Benchmark, Qwen 3.5 and GPT-5, 2026 (vendor study) | [Yoon et al. 2026](https://arxiv.org/abs/2609.01870) |
 | Say what each piece changes | Evidence that had been gathered went unused in 68% of traces | Benchmark, 3 models, 2026 | [Ríos-García et al. 2026](https://arxiv.org/abs/2604.18805) |
-| Ask the same questions about every option | A fixed topic list, with follow-up only on thin answers, drew out 14.7 useful points an interview against 10.1 | 34,109 transcripts, 2025 | [Jabarian and Henkel 2026](https://www.ifo.de/DocDL/cesifo1_wp12984.pdf) |
+| Ask the same questions about every option | An interviewer that kept closer to its guide covered 45% of the topics against 38%, and led to more job offers, 9.73% against 8.70% | Field experiment, 67,056 applications, 2025 | [Jabarian and Henkel 2026](https://www.ifo.de/DocDL/cesifo1_wp12984.pdf) |
 | Change the order | Flipping the order of two options cut the favoured answer by 19% | Simulations, ChatGPT-5 | [HBR 2026](https://hbr.org/2026/03/researchers-asked-llms-for-strategic-advice-they-got-trendslop-in-return) |
 
 ## Test
@@ -54,6 +55,9 @@ than results about people.
 | ---- | ----- | --- | ------ |
 | Both sides of every option | Two-sided debate took people from 41.3% to 57.6% correct; one-sided advice raised confidence and not accuracy | Experiments, 92 and 80 people | [Carro et al. 2026](https://arxiv.org/abs/2610.28539) |
 | Only evidence moves a verdict | Pushed for 25 turns, four 2026 models gave up true answers in 65% to 97% of cases | Benchmark, 2026 | [Tang et al. 2026](https://arxiv.org/abs/2609.09090) |
+| Change when the evidence is good | Claude Opus 5.5 followed 0.8% of unsound arguments and 32.2% of sound ones; GPT-6 Astra followed 0.15% and 88.3% | Benchmark, 2026 | [Ballon et al. 2026](https://arxiv.org/abs/2610.15634) |
+| A model's confidence settles nothing | A confidence threshold broke its promised accuracy in 147 of 190 checks | Benchmark, decision models, 2026 | [Brom 2026](https://arxiv.org/abs/2610.36311) |
+| Flatten the wording | Rewriting the better answer in an emotional tone moved verdicts in 29 to 38 of 100 cases beyond chance | Benchmark, 5 current judges, 2026 | [Lukassen et al. 2026](https://arxiv.org/abs/2610.18122) |
 | A fresh start for the model's own view | When it had seen the person's answer, the "independent" view matched it fully in 48% of cases, against 3% | Trial, GPT-4 | [Everett et al. 2026](https://www.nature.com/articles/s41746-026-02545-1) |
 | Models agreeing is one vote | Nine models from seven families were worth about two independent votes | Benchmark | [Kohli 2026](https://arxiv.org/abs/2605.29800) |
 | One strong model rather than a panel | Two vendors' models disagreed on 1 of 20 decisions; the panel did not outscore one model | Pre-registered, 20 decisions | [Tribunal 2026](https://github.com/kdoubt/tribunal) |

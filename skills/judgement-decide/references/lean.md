@@ -10,6 +10,9 @@ Each person writes down where they lean now, before hearing anyone else and befo
 4. Show them together only when all are in. Name the widest gap and ask what each person knows that
    the others may not. New facts go into `evidence`.
 
+Writing it down keeps the view. It does not protect it: people still drift towards the last confident
+voice, which is why Commit asks which fact moved them.
+
 Do not comment on who is right. Agreement reached here counts. Agreement reached later, after people
 have heard each other, is worth less, so this is the one to keep.
 
