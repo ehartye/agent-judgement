@@ -1,0 +1,632 @@
+{
+  "schemaVersion": "1.0",
+  "id": "heating-system",
+  "title": "Replace the library's heating",
+  "status": "decided",
+  "created": "2026-09-02",
+  "updated": "2026-09-24",
+  "frame": {
+    "question": "Which heating should the Alder Street library run on for the next fifteen winters?",
+    "whyNow": "The 1989 boiler failed twice last winter and closed the building for six days.",
+    "outcomeWanted": "A warm building that never closes for heat, at a running cost the library can plan for.",
+    "deciders": [
+      {
+        "name": "Mara",
+        "part": "decides"
+      },
+      {
+        "name": "Theo",
+        "part": "decides"
+      },
+      {
+        "name": "Ines",
+        "part": "advises"
+      }
+    ],
+    "decideBy": "2026-09-30",
+    "boundaries": [
+      "No more than $95,000",
+      "Finished before the first frost",
+      "The reading room stays open during work"
+    ],
+    "undo": {
+      "class": "permanent",
+      "how": "Equipment can be resold at a loss; the pipework cannot be put back."
+    },
+    "depth": "deep"
+  },
+  "map": {
+    "parts": [
+      {
+        "id": "readers",
+        "name": "Readers",
+        "kind": "person",
+        "wants": "A warm room on the day they come"
+      },
+      {
+        "id": "caretaker",
+        "name": "Caretaker",
+        "kind": "person",
+        "wants": "One system he can fix"
+      },
+      {
+        "id": "board",
+        "name": "Library board",
+        "kind": "person",
+        "wants": "A bill it can plan for"
+      },
+      {
+        "id": "walls",
+        "name": "Uninsulated walls",
+        "kind": "thing"
+      },
+      {
+        "id": "grant",
+        "name": "Insulation grant",
+        "kind": "resource"
+      }
+    ],
+    "links": [
+      {
+        "from": "walls",
+        "to": "board",
+        "effect": "hurts",
+        "note": "Heat lost is money spent"
+      },
+      {
+        "from": "grant",
+        "to": "walls",
+        "effect": "helps"
+      },
+      {
+        "from": "board",
+        "to": "grant",
+        "effect": "needs",
+        "note": "Needs the spring window"
+      }
+    ]
+  },
+  "takes": [
+    {
+      "who": "Mara",
+      "actor": "person",
+      "at": "2026-09-02T18:10",
+      "when": "first",
+      "independent": true,
+      "leaning": "pump",
+      "probability": 0.65,
+      "why": "Running costs are what hurt us every year."
+    },
+    {
+      "who": "Theo",
+      "actor": "person",
+      "at": "2026-09-02T18:12",
+      "when": "first",
+      "independent": true,
+      "leaning": "gas",
+      "probability": 0.7,
+      "why": "We know how to look after one, and it can be in by October."
+    },
+    {
+      "who": "Model",
+      "actor": "model",
+      "at": "2026-09-09T19:40",
+      "when": "first",
+      "independent": true,
+      "leaning": "staged",
+      "probability": 0.6,
+      "why": "It fixes the closure risk now and keeps the pump decision open until the insulation is measured."
+    },
+    {
+      "who": "Mara",
+      "actor": "person",
+      "at": "2026-09-24T18:30",
+      "when": "final",
+      "independent": true,
+      "leaning": "staged",
+      "probability": 0.75,
+      "why": "The heat-loss survey changed my mind about sizing the pump today."
+    },
+    {
+      "who": "Theo",
+      "actor": "person",
+      "at": "2026-09-24T18:31",
+      "when": "final",
+      "independent": true,
+      "leaning": "staged",
+      "probability": 0.7,
+      "why": "It is in by October and it is not a dead end."
+    }
+  ],
+  "criteria": [
+    {
+      "id": "open",
+      "text": "Never closed for heat",
+      "kind": "must",
+      "order": 1,
+      "low": "Single point of failure",
+      "high": "Runs through any one failure",
+      "fixedAt": "2026-09-03T18:00"
+    },
+    {
+      "id": "cost",
+      "text": "Yearly running cost",
+      "kind": "want",
+      "order": 2,
+      "low": "Above today's $11,400",
+      "high": "Under $6,000",
+      "fixedAt": "2026-09-03T18:00"
+    },
+    {
+      "id": "ready",
+      "text": "Working before first frost",
+      "kind": "must",
+      "order": 3,
+      "low": "After November",
+      "high": "By mid October",
+      "fixedAt": "2026-09-03T18:00"
+    },
+    {
+      "id": "care",
+      "text": "Easy to look after",
+      "kind": "want",
+      "order": 4,
+      "low": "Specialist visits only",
+      "high": "Caretaker can handle it",
+      "fixedAt": "2026-09-03T18:00"
+    }
+  ],
+  "options": [
+    {
+      "id": "pump",
+      "name": "Full heat pump now",
+      "from": "person",
+      "state": "set-aside",
+      "enteredAt": "lean",
+      "leftAt": "test",
+      "because": "Sized today it would be a third too large once the walls are insulated.",
+      "mustBeTrue": [
+        "Heat loss stays at today's level",
+        "Installer can finish by mid October"
+      ]
+    },
+    {
+      "id": "gas",
+      "name": "New gas boiler",
+      "from": "person",
+      "state": "set-aside",
+      "enteredAt": "lean",
+      "leftAt": "weigh",
+      "because": "Leaves one point of failure and the running cost unchanged."
+    },
+    {
+      "id": "staged",
+      "name": "Small boiler now, pump after insulation",
+      "from": "model",
+      "state": "chosen",
+      "enteredAt": "widen",
+      "mustBeTrue": [
+        "Insulation is done within two years",
+        "The small boiler stays on as backup"
+      ]
+    },
+    {
+      "id": "repair",
+      "name": "Repair and wait a year",
+      "from": "model",
+      "state": "set-aside",
+      "enteredAt": "widen",
+      "leftAt": "weigh",
+      "because": "The engineer put another failure this winter at better than even."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "e1",
+      "text": "Boiler failed twice last winter; six days closed.",
+      "kind": "fact",
+      "source": "Building log, January and February",
+      "strength": "strong",
+      "bears": [
+        {
+          "option": "repair",
+          "way": "against"
+        },
+        {
+          "option": "gas",
+          "way": "for"
+        }
+      ],
+      "addedBy": "person"
+    },
+    {
+      "id": "e2",
+      "text": "Heat-loss survey: 38% of heat leaves through uninsulated walls.",
+      "kind": "fact",
+      "source": "Survey, 19 September",
+      "strength": "strong",
+      "bears": [
+        {
+          "option": "pump",
+          "way": "against"
+        },
+        {
+          "option": "staged",
+          "way": "for"
+        }
+      ],
+      "addedBy": "person"
+    },
+    {
+      "id": "e3",
+      "text": "Two installers quote a November start for a full pump.",
+      "kind": "fact",
+      "source": "Quotes, 11 and 12 September",
+      "strength": "fair",
+      "bears": [
+        {
+          "option": "pump",
+          "way": "against"
+        }
+      ],
+      "addedBy": "person"
+    },
+    {
+      "id": "e4",
+      "text": "A pump sized for the insulated building would cost about $31,000 less.",
+      "kind": "inference",
+      "source": "From the survey and both quotes",
+      "strength": "fair",
+      "bears": [
+        {
+          "option": "staged",
+          "way": "for"
+        }
+      ],
+      "addedBy": "model"
+    },
+    {
+      "id": "e5",
+      "text": "The insulation grant reopens in spring.",
+      "kind": "assumption",
+      "source": "Grant office, by phone",
+      "strength": "weak",
+      "bears": [
+        {
+          "option": "staged",
+          "way": "for"
+        }
+      ],
+      "ifWrong": "Insulation slips a year and the boiler carries two winters alone.",
+      "addedBy": "person"
+    },
+    {
+      "id": "e6",
+      "text": "What gas will cost in five years.",
+      "kind": "unknown",
+      "bears": [],
+      "addedBy": "model"
+    }
+  ],
+  "outsideView": {
+    "similarCases": "Nine public buildings of the same age in the county that changed heating since 2018",
+    "whatHappened": "Seven ran over budget, by a median of 14%; the two that insulated first did not.",
+    "source": "County facilities report, 2025"
+  },
+  "ratings": [
+    {
+      "option": "pump",
+      "criterion": "open",
+      "score": 4,
+      "because": "New equipment, one system.",
+      "by": "Mara, Theo"
+    },
+    {
+      "option": "pump",
+      "criterion": "cost",
+      "score": 5,
+      "because": "About $5,800 a year.",
+      "by": "Mara, Theo"
+    },
+    {
+      "option": "pump",
+      "criterion": "ready",
+      "score": 1,
+      "because": "November start.",
+      "by": "Mara, Theo"
+    },
+    {
+      "option": "pump",
+      "criterion": "care",
+      "score": 2,
+      "because": "Specialist servicing.",
+      "by": "Mara, Theo"
+    },
+    {
+      "option": "gas",
+      "criterion": "open",
+      "score": 2,
+      "because": "One boiler, one failure closes us.",
+      "by": "Mara, Theo"
+    },
+    {
+      "option": "gas",
+      "criterion": "cost",
+      "score": 2,
+      "because": "About $10,300 a year.",
+      "by": "Mara, Theo"
+    },
+    {
+      "option": "gas",
+      "criterion": "ready",
+      "score": 5,
+      "because": "In by 10 October.",
+      "by": "Mara, Theo"
+    },
+    {
+      "option": "gas",
+      "criterion": "care",
+      "score": 5,
+      "because": "Caretaker knows it.",
+      "by": "Mara, Theo"
+    },
+    {
+      "option": "staged",
+      "criterion": "open",
+      "score": 5,
+      "because": "Two systems once the pump is in.",
+      "by": "Mara, Theo"
+    },
+    {
+      "option": "staged",
+      "criterion": "cost",
+      "score": 4,
+      "because": "About $8,900 until the pump, then $5,400.",
+      "by": "Mara, Theo"
+    },
+    {
+      "option": "staged",
+      "criterion": "ready",
+      "score": 5,
+      "because": "Small boiler in by 12 October.",
+      "by": "Mara, Theo"
+    },
+    {
+      "option": "staged",
+      "criterion": "care",
+      "score": 3,
+      "because": "Two systems to learn.",
+      "by": "Mara, Theo"
+    },
+    {
+      "option": "repair",
+      "criterion": "open",
+      "score": 1,
+      "because": "Likely to fail again.",
+      "by": "Mara, Theo"
+    },
+    {
+      "option": "repair",
+      "criterion": "cost",
+      "score": 1,
+      "because": "Same bill plus repairs.",
+      "by": "Mara, Theo"
+    },
+    {
+      "option": "repair",
+      "criterion": "ready",
+      "score": 4,
+      "because": "Parts in three weeks.",
+      "by": "Mara, Theo"
+    },
+    {
+      "option": "repair",
+      "criterion": "care",
+      "score": 3,
+      "because": "As today.",
+      "by": "Mara, Theo"
+    }
+  ],
+  "tensions": [
+    {
+      "between": [
+        "cost",
+        "ready"
+      ],
+      "real": true,
+      "evidence": "No installer can finish a full pump before the frost.",
+      "resolvedBy": "time",
+      "result": "Heat this winter with a small boiler; buy the pump when the building needs a smaller one.",
+      "gaveUp": "Two winters of the lower bill."
+    }
+  ],
+  "objections": [
+    {
+      "id": "o1",
+      "text": "Once the boiler works, nobody will fund the pump.",
+      "from": "Ines",
+      "actor": "person",
+      "against": "staged",
+      "state": "standing",
+      "cheapestTest": "Ask the board to vote the insulation money into next year's budget before the boiler is ordered."
+    },
+    {
+      "id": "o2",
+      "text": "A small boiler cannot hold the reading room on the coldest days.",
+      "from": "Theo",
+      "actor": "person",
+      "against": "staged",
+      "state": "answered",
+      "settledBy": "Heat-loss survey: 24 kW covers the coldest day on record with the annexe closed."
+    },
+    {
+      "id": "o3",
+      "text": "The pump would be a third too large after insulation.",
+      "from": "Model",
+      "actor": "model",
+      "against": "pump",
+      "state": "changed-the-choice",
+      "settledBy": "Survey confirmed the heat loss."
+    }
+  ],
+  "failureStories": [
+    {
+      "story": "It is 2029. The boiler runs fine, the walls are still bare, and the pump money went to the roof.",
+      "firstSign": "Insulation missing from the spring budget draft.",
+      "guard": "Board votes insulation and boiler as one item."
+    }
+  ],
+  "knowable": {
+    "answer": "partly",
+    "missing": [
+      "Gas prices beyond two years"
+    ],
+    "plan": []
+  },
+  "decision": {
+    "choice": "staged",
+    "by": [
+      "Mara",
+      "Theo"
+    ],
+    "at": "2026-09-24T18:40",
+    "reason": "It is the only option that keeps the doors open this winter without buying a pump the building will outgrow.",
+    "basis": "fair",
+    "givingUp": "Two winters of the lower running cost.",
+    "riskOwner": "Mara",
+    "firstStep": "Put insulation and boiler to the board as one vote on 1 October.",
+    "keepReversible": "Leave the flue and gas main sized for the small boiler only."
+  },
+  "plan": {
+    "steps": [
+      {
+        "step": "One board vote for boiler and insulation",
+        "owner": "Mara",
+        "by": "2026-10-01",
+        "gate": "Vote passes as one item"
+      },
+      {
+        "step": "Install small boiler",
+        "owner": "Theo",
+        "by": "2026-10-12",
+        "gate": "Reading room at 19°C for 48 hours"
+      },
+      {
+        "step": "Apply for the insulation grant",
+        "owner": "Ines",
+        "by": "2027-03-15"
+      }
+    ],
+    "measures": [
+      {
+        "measure": "Days closed for heat each winter",
+        "now": "6",
+        "target": "0"
+      },
+      {
+        "measure": "Heating bill",
+        "now": "$11,400",
+        "target": "$5,400 after the pump"
+      }
+    ]
+  },
+  "forecasts": [
+    {
+      "claim": "No closure for heat before April",
+      "probability": 0.92,
+      "by": "Theo",
+      "checkOn": "2027-04-01",
+      "howWeWillKnow": "Building log shows zero days closed for heat.",
+      "cameTrue": null
+    },
+    {
+      "claim": "Insulation is funded in the spring budget",
+      "probability": 0.6,
+      "by": "Mara",
+      "checkOn": "2027-05-15",
+      "howWeWillKnow": "Adopted budget names it.",
+      "cameTrue": null
+    },
+    {
+      "claim": "Boiler and install stay under $24,000",
+      "probability": 0.8,
+      "by": "Mara",
+      "checkOn": "2026-11-15",
+      "howWeWillKnow": "Final invoice.",
+      "cameTrue": null
+    }
+  ],
+  "reopenIf": [
+    {
+      "sign": "Insulation left out of the adopted spring budget",
+      "watcher": "Ines",
+      "seen": null
+    },
+    {
+      "sign": "Boiler quote rises above $28,000 before signing",
+      "watcher": "Mara",
+      "seen": null
+    }
+  ],
+  "review": {
+    "on": "2027-05-15"
+  },
+  "events": [
+    {
+      "at": "2026-09-02T18:05",
+      "stage": "frame",
+      "actor": "person",
+      "who": "Mara",
+      "what": "Asked the question; three boundaries set."
+    },
+    {
+      "at": "2026-09-02T18:12",
+      "stage": "lean",
+      "actor": "person",
+      "who": "Theo",
+      "what": "Both first takes written before either was shown."
+    },
+    {
+      "at": "2026-09-03T18:00",
+      "stage": "widen",
+      "actor": "person",
+      "who": "Mara, Theo",
+      "what": "Four criteria fixed and ordered."
+    },
+    {
+      "at": "2026-09-09T19:30",
+      "stage": "widen",
+      "actor": "model",
+      "who": "Model",
+      "what": "Added two options: staged, and repair and wait."
+    },
+    {
+      "at": "2026-09-09T19:40",
+      "stage": "weigh",
+      "actor": "model",
+      "who": "Model",
+      "what": "Gave its own take, after both people."
+    },
+    {
+      "at": "2026-09-16T18:20",
+      "stage": "weigh",
+      "actor": "person",
+      "who": "Mara, Theo",
+      "what": "Rated one criterion at a time; gas and repair set aside."
+    },
+    {
+      "at": "2026-09-19T12:00",
+      "stage": "test",
+      "actor": "person",
+      "who": "Ines",
+      "what": "Survey came back: 38% of heat lost through the walls."
+    },
+    {
+      "at": "2026-09-24T18:40",
+      "stage": "commit",
+      "actor": "person",
+      "who": "Mara, Theo",
+      "what": "Chose staged; three forecasts and two reopen signs recorded."
+    }
+  ]
+}
