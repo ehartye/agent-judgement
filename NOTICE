@@ -1,0 +1,14 @@
+Agent Judgement
+Copyright (c) 2026 Eric Hartye. MIT License.
+
+Ideas learned from these MIT-licensed projects. No code or text was copied.
+
+- tribunal (https://github.com/kdoubt/tribunal): claims with a state, dissent kept on the record, and
+  publishing one's own null results.
+- autodecision (https://github.com/harshilmathur/autodecision): a decision journal kept for later
+  comparison with outcomes.
+- futureos (https://github.com/DresdenGman/futureos): forecast before acting, and score it.
+- cc-thinking-skills (https://github.com/tjboudreaux/cc-thinking-skills): matching the depth of work
+  to how reversible a choice is.
+
+The studies behind each step are cited in skills/judgement-decide/references/evidence.md.

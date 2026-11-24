@@ -24,7 +24,7 @@
     "id": {
       "type": "string",
       "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
-      "description": "Also the folder name."
+      "description": "The title part of the folder name: yyyy-mm-dd-id."
     },
     "title": {
       "type": "string",
