@@ -217,8 +217,8 @@
       const hit = opts.find((o) => o.id === t.leaning || o.name.toLowerCase() === String(t.leaning).toLowerCase());
       return el('div', { class: 'take', color: hit ? color(hit.id) : null },
         el('p', { class: 'small' }, `${t.who}, ${t.when === 'final' ? 'at the end' : 'at the start'}`),
-        el('b', {}, hit ? hit.name : t.leaning), el('div', { class: 'bar', role: 'img', 'aria-label': pct(t.probability) + ' sure' }, el('i', { style: `width:${pct(t.probability)}` })),
-        el('p', { class: 'small' }, `${pct(t.probability)} sure. ${t.why || ''}`));
+        el('b', {}, hit ? hit.name : t.leaning), t.probability == null ? null : el('div', { class: 'bar', role: 'img', 'aria-label': pct(t.probability) + ' sure' }, el('i', { style: `width:${pct(t.probability)}` })),
+        el('p', { class: 'small' }, [t.probability == null ? null : pct(t.probability) + ' sure.', t.why].filter(Boolean).join(' ')));
     }))));
 
     if (list(d.criteria).length && list(d.ratings).length) {
@@ -243,7 +243,7 @@
       fs.map((q) => el('div', { class: 'row' }, el('b', {}, q.story), el('p', { class: 'small' }, [q.firstSign ? 'First sign: ' + q.firstSign : null, q.guard ? 'Guard: ' + q.guard : null].filter(Boolean).join(' '))))) : null;
     if (evBox || obBox) out.push(el('section', { class: 'grid2' }, evBox, obBox));
 
-    if (d.outsideView && d.outsideView.whatHappened) out.push(el('section', {}, el('h2', {}, 'How cases like this usually go'), el('p', { style: 'max-width:70ch' }, `${d.outsideView.similarCases}. ${d.outsideView.whatHappened}`), d.outsideView.source ? el('p', { class: 'small' }, d.outsideView.source) : null));
+    if (d.outsideView && d.outsideView.whatHappened) out.push(el('section', {}, el('h2', {}, 'How cases like this usually go'), el('p', { style: 'max-width:70ch' }, [d.outsideView.similarCases ? d.outsideView.similarCases + '.' : null, d.outsideView.whatHappened].filter(Boolean).join(' ')), d.outsideView.source ? el('p', { class: 'small' }, d.outsideView.source) : null));
 
     const need = list(d.knowable && d.knowable.plan);
     if (need.length) out.push(el('section', {}, el('h2', {}, 'What to find out first'), need.map((p) => el('div', { class: 'row' }, el('b', {}, p.find), el('p', { class: 'small' }, [p.how, p.owner, p.by ? 'by ' + day(p.by) : null].filter(Boolean).join(', '))))));
@@ -251,7 +251,7 @@
     const fc = list(d.forecasts), re = list(d.reopenIf);
     if (fc.length || re.length) out.push(el('section', { class: 'grid2' },
       fc.length ? el('div', {}, el('h2', {}, 'What we expect'), fc.map((q) => el('div', { class: 'row' }, el('b', {}, q.claim), el('div', { class: 'bar', role: 'img', 'aria-label': pct(q.probability) }, el('i', { style: `width:${pct(q.probability)}` })), el('p', { class: 'small' }, el('span', { class: 'fig' }, pct(q.probability)), ` ${q.by ? q.by + ', ' : ''}check ${day(q.checkOn)}. ${q.howWeWillKnow}`, q.cameTrue == null ? '' : q.cameTrue ? ' It came true.' : ' It did not.')))) : null,
-      re.length ? el('div', {}, el('h2', {}, 'What would reopen it'), re.map((q) => el('div', { class: 'row' }, el('b', {}, q.sign), el('p', { class: 'small' }, q.seen ? `Seen: ${q.seen}` : `${q.watcher} is watching`)))) : null));
+      re.length ? el('div', {}, el('h2', {}, 'What would reopen it'), re.map((q) => el('div', { class: 'row' }, el('b', {}, q.sign), el('p', { class: 'small' }, q.seen ? `Seen: ${q.seen}` : q.watcher ? `${q.watcher} is watching` : 'Nobody is watching for this yet')))) : null));
 
     const st = list(d.plan && d.plan.steps), me = list(d.plan && d.plan.measures);
     if (st.length || me.length) out.push(el('section', { class: 'grid2' },

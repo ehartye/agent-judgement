@@ -136,6 +136,55 @@ test('each example board holds exactly its record, safely', () => {
   }
 });
 
+// A record that says only what people said, plus one that is filled in where wording is joined together.
+const sparse = {
+  schemaVersion: '1.0', id: 'sparse', title: 'Sparse record', status: 'decided', created: '2026-01-05',
+  frame: { question: 'Which?', deciders: [{ name: 'A', part: 'decides' }], undo: { class: 'costly' }, depth: 'standard' },
+  takes: [{ who: 'A', actor: 'person', at: '2026-01-05T10:00:00Z', leaning: 'one' }],
+  criteria: [], events: [{ at: '2026-01-05T10:00:00Z', stage: 'commit', actor: 'person', what: 'Chose' }],
+  options: [{ id: 'one', name: 'One', from: 'person', state: 'chosen' }, { id: 'two', name: 'Two', from: 'person', state: 'set-aside' }],
+  decision: { choice: 'one', by: ['A'], at: '2026-01-05T10:00:00Z' },
+  reopenIf: [{ sign: 'A sign' }],
+  gaps: ['Nobody gave a reason', 'Nobody is watching the sign'],
+};
+
+// Just enough of a page to run the board's own script and read what it wrote.
+function drawn(record) {
+  class Node {
+    constructor(tag) { this.tag = tag; this.kids = []; this.attrs = {}; this.style = { setProperty() {} }; }
+    append(...k) { this.kids.push(...k); }
+    replaceChildren(...k) { this.kids = k; }
+    setAttribute(k, v) { this.attrs[k] = String(v); }
+    addEventListener() {}
+    set textContent(v) { this.kids = [v]; }
+    get textContent() { return this.kids.map((k) => (k instanceof Node ? k.textContent : String(k))).join(' '); }
+    all() { return [...Object.values(this.attrs), ...this.kids.flatMap((k) => (k instanceof Node ? k.all() : [String(k)]))]; }
+  }
+  const app = new Node('main'), rec = new Node('script');
+  rec.textContent = JSON.stringify(record);
+  const document = {
+    title: '', getElementById: (id) => (id === 'app' ? app : id === 'record' ? rec : null),
+    createElement: (t) => new Node(t), createElementNS: (_, t) => new Node(t),
+    createTextNode: (t) => { const n = new Node('#text'); n.kids = [t]; return n; },
+  };
+  const script = read('assets/board.html').match(/<script>\n([\s\S]*?)<\/script>/)[1];
+  new Function('document', 'Node', 'addEventListener', 'window', script)(document, Node, () => {}, {});
+  return app.all().join('\n');
+}
+
+test('a record with nothing filled in by guesswork is valid', () => {
+  assert.deepEqual(validate(schema, sparse), []);
+});
+
+test('the board draws what is missing in plain words', () => {
+  const outside = { ...sparse, outsideView: { whatHappened: 'It went well.' } };
+  for (const r of [sparse, outside, JSON.parse(read('examples/heating-system/decision.json'))]) {
+    assert.doesNotMatch(drawn(r), /undefined|NaN|\bnull\b|\[object/);
+  }
+  const text = drawn(sparse);
+  for (const t of ['No reason was recorded.', 'Nobody is watching for this yet', 'Nobody gave a reason']) assert.ok(text.includes(t), t);
+});
+
 test('the infographic names every stage in order and loads nothing', () => {
   const s = read('assets/workflow.svg');
   const at = ['Frame', 'Lean', 'Widen', 'Weigh', 'Test', 'Commit', 'Return'].map((n) => s.indexOf(`>${n}</text>`));

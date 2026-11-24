@@ -204,8 +204,7 @@
           "who",
           "actor",
           "at",
-          "leaning",
-          "probability"
+          "leaning"
         ],
         "additionalProperties": false,
         "properties": {
@@ -759,8 +758,7 @@
       "items": {
         "type": "object",
         "required": [
-          "sign",
-          "watcher"
+          "sign"
         ],
         "additionalProperties": false,
         "properties": {

@@ -4,7 +4,7 @@ A guide for decisions that matter. It works through a choice with you, keeps one
 draws a board you can open in any browser. The people decide. The agent asks good questions, finds
 evidence, argues every side and writes it down.
 
-Works in Claude Code and Codex. There is nothing to run.
+Made for Claude Code and Codex. There is nothing to run.
 
 ![The seven stages of a decision: Frame, Lean, Widen, Weigh, Test, Commit and Return, drawn as a route map. Options branch at Widen and end where they are set aside; one reaches Commit, and Return loops back to Frame when a reopening sign is seen.](assets/workflow.svg)
 

@@ -20,7 +20,8 @@ towards the answer.
 1. **What happened?** In their words, with something they can point at.
 2. **Forecasts.** For each one due, use its own test to mark `cameTrue` true or false, and note the
    evidence. If it cannot be marked yet, leave it null and say when. Never reword a forecast.
-3. **Reopening signs.** For each, ask its watcher. Record what was `seen`.
+3. **Reopening signs.** For each, ask its watcher, or whoever would know if nobody was named. Record
+   what was `seen`.
 4. **Score.** For the marked forecasts, average (probability − outcome)², with outcome 1 for true and
    0 for false. Write it as `review.brier`. 0 is perfect and 0.25 is a coin flip. With fewer than ten
    marked across all their decisions, report it as a start.
