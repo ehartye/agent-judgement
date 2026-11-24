@@ -43,6 +43,9 @@ than results about people.
 | Look at similar cases | 62% of projects planned this way finished in budget, against a 50% target | 39 UK transport projects | [Park 2021](https://journals.open.tudelft.nl/ejtir/article/download/5504/5000/18137) |
 | Pool facts, then score separately | Help with sharing raised facts shared by 2.9 and did not change the choice | Experiment, 281 groups, GPT-4o | [Alsobay et al. 2026](https://arxiv.org/abs/2508.08242) |
 | Open the source, not the note about it | After a step was logged as done but had failed, decision models still went ahead 53% to 100% of the time | Benchmark, 4 models, 2026 | [Khezresmaeilzadeh et al. 2026](https://arxiv.org/abs/2610.25947) |
+| Gather apart, then compare side by side | Gathering blind before sharing added 3.8 points; 58% of wrong answers had already had the right one in hand | Benchmark, Qwen 3.5 and GPT-5, 2026 (vendor study) | [Yoon et al. 2026](https://arxiv.org/abs/2609.01870) |
+| Say what each piece changes | Evidence that had been gathered went unused in 68% of traces | Benchmark, 3 models, 2026 | [Ríos-García et al. 2026](https://arxiv.org/abs/2604.18805) |
+| Ask the same questions about every option | A fixed topic list, with follow-up only on thin answers, drew out 14.7 useful points an interview against 10.1 | 34,109 transcripts, 2025 | [Jabarian and Henkel 2026](https://www.ifo.de/DocDL/cesifo1_wp12984.pdf) |
 | Change the order | Flipping the order of two options cut the favoured answer by 19% | Simulations, ChatGPT-5 | [HBR 2026](https://hbr.org/2026/03/researchers-asked-llms-for-strategic-advice-they-got-trendslop-in-return) |
 
 ## Test

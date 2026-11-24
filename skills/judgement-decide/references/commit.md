@@ -21,6 +21,10 @@
 Suggest committing `docs/agent-judgement` to version control, so the history is kept by something
 other than you.
 
+## If people leave before the end
+
+Save what they said and stop there. Put every missing part in `gaps`, with the one to ask about first.
+
 ## If they are not ready
 
 Set `status` to `evidence-needed`. Write the plan in `knowable.plan`: what to find, how, who, by

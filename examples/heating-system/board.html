@@ -842,7 +842,7 @@
     if (opts.length) out.push(el('figure', { class: 'map', tabindex: '0', 'aria-label': 'Route map, scrolls sideways on small screens' }, routeMap(d, color)));
 
     if (dec) out.push(el('section', {}, el('h2', {}, 'Why'), el('div', { class: 'grid2' },
-      el('div', {}, el('p', {}, dec.reason), dec.givingUp ? el('p', { class: 'small', style: 'margin-top:10px' }, 'Giving up: ' + dec.givingUp) : null),
+      el('div', {}, el('p', {}, dec.reason || 'No reason was recorded.'), dec.givingUp ? el('p', { class: 'small', style: 'margin-top:10px' }, 'Giving up: ' + dec.givingUp) : null),
       el('div', {}, dec.firstStep ? el('p', {}, 'First step: ' + dec.firstStep) : null, dec.keepReversible ? el('p', { class: 'small', style: 'margin-top:10px' }, 'Kept open: ' + dec.keepReversible) : null, dec.riskOwner ? el('p', { class: 'small' }, 'Owns what could still go wrong: ' + dec.riskOwner) : null))));
     if (d.authorityGap) out.push(el('section', {}, el('h2', {}, 'Nobody here can commit this yet'), el('p', {}, d.authorityGap)));
 
@@ -851,7 +851,7 @@
       return el('div', { class: 'take', color: hit ? color(hit.id) : null },
         el('p', { class: 'small' }, `${t.who}, ${t.when === 'final' ? 'at the end' : 'at the start'}`),
         el('b', {}, hit ? hit.name : t.leaning), el('div', { class: 'bar', role: 'img', 'aria-label': pct(t.probability) + ' sure' }, el('i', { style: `width:${pct(t.probability)}` })),
-        el('p', { class: 'small' }, `${pct(t.probability)} sure. ${t.why}`));
+        el('p', { class: 'small' }, `${pct(t.probability)} sure. ${t.why || ''}`));
     }))));
 
     if (list(d.criteria).length && list(d.ratings).length) {
@@ -893,6 +893,8 @@
 
     const rv = d.review;
     if (rv && rv.doneAt) out.push(el('section', {}, el('h2', {}, 'Looking back'), [['What happened', rv.whatHappened], ['Decided well, given what could be known?', rv.process], ['Luck', rv.luck], ['Kept for next time', rv.lesson]].filter(([, v]) => v).map(([k, v]) => el('div', { class: 'row' }, el('p', { class: 'small' }, k), el('b', {}, v))), rv.brier != null ? el('p', { class: 'small' }, 'Forecast score ', el('span', { class: 'fig' }, rv.brier.toFixed(2)), ' (0 is perfect, 0.25 is a coin flip)') : null));
+
+    if (list(d.gaps).length) out.push(el('section', {}, el('h2', {}, 'What nobody has said yet'), d.gaps.map((g) => el('div', { class: 'row' }, el('b', {}, g)))));
 
     const parts = list(d.map && d.map.parts), links = list(d.map && d.map.links);
     if (parts.length) { const nm = Object.fromEntries(parts.map((p) => [p.id, p.name]));

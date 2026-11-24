@@ -8,16 +8,19 @@ Put each piece in one of four bins and say which option it helps or hurts:
 
 | Bin | Means | Needs |
 | --- | ----- | ----- |
-| `fact` | Someone can point at it | A source a person could open |
+| `fact` | Someone can point at it | A source a person could open, or the person who saw it happen |
 | `inference` | Worked out from facts | Which facts |
 | `assumption` | Taken as true | What happens if it is wrong |
 | `unknown` | Nobody here knows | Goes to the plan if it could change the choice |
+
+Ask the same questions about every option, and go back only where an answer is thin. Say which option
+each piece changes. A piece that changes nothing is noise; a piece nobody used is a mistake waiting.
 
 Open a source before recording it as a fact. A summary of a source, or a note that something was
 done, is not the thing itself. Collect for and against on every option, the favourite included. An
 option with nothing against it has not been looked at yet.
 
-When several people know different things, pool the facts first and score second. Sharing facts does
+When several people know different things, gather separately, then pool the facts, then score. Sharing facts does
 not by itself change a choice.
 
 ## Look outside

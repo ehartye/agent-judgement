@@ -32,4 +32,6 @@ Start with this and fill it in as you go:
 - **Ids** are lower case with hyphens, and every reference points at an id that exists.
 - **`status`:** `open`, then `evidence-needed` or `decided`, then `reviewed`. `dropped` when the
   question goes away.
+- **What nobody said goes in `gaps`.** Leave the field out and name the gap, such as "Nobody gave a
+  reason for setting the app aside". Never write a likely reason for them.
 - Leave out a section that has nothing in it.
