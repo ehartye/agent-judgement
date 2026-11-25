@@ -68,10 +68,21 @@ disagree, the guide says when to use each:
 
 ## Install
 
-Clone this repository, then:
+**Claude Code**
 
-- **Claude Code:** start it with `claude --plugin-dir path/to/agent-judgement`.
-- **Codex:** add the clone as a local plugin. Its manifest is in `.codex-plugin`.
+```text
+/plugin marketplace add ehartye/hartye-claude-plugins
+/plugin install agent-judgement@hartye-plugins
+```
+
+**Codex**
+
+```sh
+codex plugin marketplace add ehartye/hartye-claude-plugins
+codex plugin add agent-judgement@hartye-plugins
+```
+
+To try a clone in Claude Code, start it with `claude --plugin-dir path/to/agent-judgement`.
 
 ## Check it
 
