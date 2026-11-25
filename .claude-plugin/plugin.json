@@ -1,7 +1,7 @@
 {
   "name": "agent-judgement",
   "description": "Guided decision making: frame the question, write down where you lean, widen the options, weigh them one thing at a time, test the favourite, commit with a forecast, and come back to learn. Plain files, no runtime.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": { "name": "Eric Hartye" },
   "homepage": "https://github.com/ehartye/agent-judgement",
   "repository": "https://github.com/ehartye/agent-judgement",
