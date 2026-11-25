@@ -1,6 +1,6 @@
 # Frame
 
-Get the question right before anything else. Solving the wrong problem well is a costly mistake.
+Get the question right before anything else.
 
 Ask, one at a time, and skip what you already know:
 

@@ -10,14 +10,14 @@ Each person writes down where they lean now, before hearing anyone else and befo
 4. Show them together only when all are in. Name the widest gap and ask what each person knows that
    the others may not. New facts go into `evidence`.
 
-Writing it down keeps the view. It does not protect it: people still drift towards what they
+Writing it down keeps the view. It may not protect it: people can drift towards what they
 hear, which is why Commit asks which fact moved them.
 
 Do not comment on who is right. Agreement reached here counts. Agreement reached later, after people
-have heard each other, comes with more confidence and no more accuracy, so this is the one to keep.
+have heard each other, can bring more confidence without more accuracy, so this is the one to keep.
 
 ## When to trust a strong gut feeling
 
-Ask two things: has this person made this kind of call many times, and did they find out quickly
-whether they were right? Two yeses: weigh the feeling heavily and say so in `why`. Otherwise treat
-it as a good question to test. How sure someone feels is not a sign of how right they are.
+Ask two things: do the same cues come back, and has this person often made this call and quickly
+learned whether they were right? Two yeses: weigh the feeling heavily and say so in `why`. Otherwise treat
+it as a good question to test. How sure someone feels is no reliable sign of being right.

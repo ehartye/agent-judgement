@@ -1,4 +1,4 @@
-# Why each step is there
+# Sources for many steps
 
 Read this when someone asks why. Each row gives the step, what was found, how it was found, and where
 to read it. Many rows on AI give the model and year, because results about models age faster than
@@ -14,18 +14,18 @@ results about people.
 | Step | Found | How | Source |
 | ---- | ----- | --- | ------ |
 | Ask whether it can be known before talking about options | A one-paragraph triage instruction cut commitments on questions nobody could answer from 54.0% to 10.2% | Benchmark, market price questions, 2026 | [Aggarwal 2026](https://arxiv.org/abs/2608.27167) |
-| Match effort to how hard it is to undo | Records are graded: a memo may do for more minor decisions | Official handbook | [NASA 2024](https://ntrs.nasa.gov/api/citations/20240014019/downloads/SP-20240014019.pdf) |
+| Match effort to what is at stake | Records are graded: a memo may do for more minor decisions | Official handbook | [NASA 2024](https://ntrs.nasa.gov/api/citations/20240014019/downloads/SP-20240014019.pdf) |
 | Keep who analyses apart from who checks | Analyst and assurer are separate people in every case | Government guidance | [UK AQuA Book 2025](https://www.gov.uk/guidance/the-aqua-book) |
 
 ## Lean
 
 | Step | Found | How | Source |
 | ---- | ----- | --- | ------ |
-| Views recorded before the model speaks | Analysts matched the agent's planted lean on 86% of analysis choices; 77% reused its argument and 15% credited it. The final recommendation moved less, from 36% to 54% | Experiment, 50 analysts, Claude Opus 4.8 (vendor study) | [Anthropic 2026](https://www.anthropic.com/research/agents-judgment-calls) |
-| Ask later which fact moved you | In 38 cases with a stated view, 60% switched if the agent disagreed and 6% if it agreed; in a trial, putting people first or the model first made no significant difference (3.0 points, p = 0.22) | Not randomised, Claude Opus 4.8 (vendor study); trial, GPT-4 | [Anthropic 2026](https://www.anthropic.com/research/agents-judgment-calls), [Everett et al. 2026](https://www.nature.com/articles/s41746-026-02545-1) |
+| Views recorded before the model speaks | Analysts matched the agent's planted lean on 86% of analysis choices; 77% reused its argument and 15% credited it. The final recommendation moved less, from 36% to 54%. Putting people first or the model first made no significant difference in another trial (3.0 points, p = 0.22) | Experiment, 50 analysts, Claude Opus 4.8 (vendor study); trial, GPT-4 | [Anthropic 2026](https://www.anthropic.com/research/agents-judgment-calls), [Everett et al. 2026](https://www.nature.com/articles/s41746-026-02545-1) |
+| Ask later which fact moved you | In 38 cases with a stated view, 60% switched if the agent disagreed and 6% if it agreed | Part of the same experiment; who had a view was not randomised | [Anthropic 2026](https://www.anthropic.com/research/agents-judgment-calls) |
 | Alone, then compared | Structured anonymous rounds beat ordinary groups five studies to one; sharing reasons helped, sharing averages alone did not | Review | [Rowe and Wright 2001](https://gwern.net/doc/statistics/prediction/2001-rowe.pdf) |
 | Count agreement reached before talking | Talking after independent judging left accuracy at 62% (63.0 to 62.2) and raised confidence from 65.8 to 71.1 | Experiment, 127 people | [Carro et al. 2026](https://arxiv.org/abs/2610.28539) |
-| Trust a gut feeling only with practice and quick feedback | Skilled intuition needs regular cues and "feedback that is both rapid and unequivocal"; feeling sure is not a sign of being right | Joint paper by two rival schools | [Kahneman and Klein 2009](https://doi.org/10.1037/a0016755) |
+| Trust a gut feeling only with practice and quick feedback | Skilled intuition needs regular cues and "feedback that is both rapid and unequivocal"; feeling sure is an unreliable sign of being right | Joint paper by two rival schools | [Kahneman and Klein 2009](https://doi.org/10.1037/a0016755) |
 | Keep confidence apart from quality | A three-agent system raised managers' belief in their plans by 3.3 points, with no significant gain in expert-rated quality on average | Randomised, 976 managers, GPT-4o | [Camuffo et al. 2026](https://doi.org/10.1287/stsc.2025.0432) |
 
 ## Widen
@@ -68,7 +68,7 @@ results about people.
 
 | Step | Found | How | Source |
 | ---- | ----- | --- | ------ |
-| Forecast with numbers | Under an hour of training improved forecasts by 6% to 12% in each of four years | Randomised, real outcomes | [Chang et al. 2016](https://journal.sjdm.org/16/16511/jdm16511.pdf) |
+| Learn to forecast | Under an hour of training improved forecasts by 6% to 12% in each of four years | Randomised, real outcomes | [Chang et al. 2016](https://journal.sjdm.org/16/16511/jdm16511.pdf) |
 | Keep likelihood and grounds apart | Analysts must not state both in one sentence | Intelligence standard | [ICD 203](https://www.dni.gov/files/documents/ICD/ICD-203.pdf) |
 | Signs that would reopen it | Vulnerable assumptions under the plan get signposts and hedges | Method chapter | [Lempert 2019](https://link.springer.com/chapter/10.1007/978-3-030-05252-2_2) |
 | A person's own reason before a serious commitment | Written justification can be required; a low override rate may mean rubber-stamping | Government framework | [Singapore IMDA 2026](https://www.imda.gov.sg/-/media/imda/files/about/emerging-tech-and-research/artificial-intelligence/mgf-for-agentic-ai.pdf) |
@@ -90,9 +90,11 @@ results about people.
 | A model collects, a person decides | 12% more offers, and 18% more people starting and still there a month later | 67,056 job applications, 2025 | [Jabarian and Henkel 2026](https://www.ifo.de/DocDL/cesifo1_wp12984.pdf) |
 | Judges given a source-linked assistant and training | 6.3% more cases resolved at median exposure, an association | 118 districts, 2024 | [Mehmood et al. 2026](https://elliottash.com/papers/Mehmood-Goessmann-Ash-Courts-of-Tomorrow-Evidence-Nationwide-Rollout-Generative-AI.pdf) |
 | A model running the process, not giving the answer | Correct group choices rose from 32.6% to 56.5% | Randomised, 138 groups, GPT-5 | [Córdova et al. 2026](https://arxiv.org/abs/2611.19652) |
+| Doctors sent an ECG warning | Deaths within 90 days: 3.6% against 4.3% (hazard ratio 0.83, 0.70 to 0.99) | Randomised, 39 physicians, 15,965 patients; not a language model; abstract read | [Lin et al. 2024](https://pubmed.ncbi.nlm.nih.gov/38684860/) |
+| Breast screening with AI sorting and support | Cancers found between screens were not more common: 1.55 against 1.76 per 1,000 (non-inferior) | Randomised, 105,934 women; not a language model; abstract read | [Gommers et al. 2026](https://pubmed.ncbi.nlm.nih.gov/41620232/) |
 | People with AI | Better than people alone (g = 0.53); behind the better of the two where both were tested (g = −0.35) | 420 papers, generative AI, automated review | [Vaccaro et al. 2026](https://arxiv.org/abs/2610.42001) |
 
-As we read them, the first three share a bounded job for the model and a person who decides.
+As we read them, the first five share a bounded job for the model and a person who decides.
 
 ## What nobody has tested yet
 
