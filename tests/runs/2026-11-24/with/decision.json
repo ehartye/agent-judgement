@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "1.0",
+  "id": "volunteer-database",
+  "title": "Volunteer database",
+  "status": "decided",
+  "created": "2026-11-24",
+  "updated": "2026-11-24",
+  "frame": {
+    "question": "Should we move our volunteer database from spreadsheets to Airtable or a custom web app, or leave it?",
+    "whyNow": "Spreadsheet errors caused 4 missed shifts last quarter.",
+    "outcomeWanted": "Fewer missed shifts (most important), low upkeep, staying in budget.",
+    "deciders": [
+      { "name": "Priya", "part": "decides" },
+      { "name": "Sam", "part": "decides" }
+    ],
+    "decideBy": "2027-01-15",
+    "boundaries": ["$1,500 a year"],
+    "undo": {
+      "class": "costly",
+      "how": "Not asked. Set to costly by the model: the records of 300 volunteers would have to be moved again."
+    },
+    "depth": "standard"
+  },
+  "takes": [
+    { "who": "Priya", "actor": "person", "at": "2026-11-24", "when": "first", "leaning": "airtable", "probability": 0.7, "why": "No reason given." },
+    { "who": "Sam", "actor": "person", "at": "2026-11-24", "when": "first", "leaning": "custom-app", "probability": 0.6, "why": "Reminders by text matter, and he thinks Airtable texting is extra." }
+  ],
+  "criteria": [
+    { "id": "missed-shifts", "text": "Fewer missed shifts", "kind": "want", "order": 1, "fixedAt": "2026-11-24" },
+    { "id": "upkeep", "text": "Low upkeep", "kind": "want", "fixedAt": "2026-11-24" },
+    { "id": "budget", "text": "Staying in budget", "kind": "want", "fixedAt": "2026-11-24" }
+  ],
+  "options": [
+    {
+      "id": "airtable",
+      "name": "Airtable",
+      "summary": "About $1,080 a year for 4 seats.",
+      "from": "person",
+      "state": "chosen",
+      "enteredAt": "lean",
+      "mustBeTrue": [
+        "Seats and any texting together cost no more than $1,500 a year",
+        "It prevents the kind of spreadsheet error that led to missed shifts"
+      ]
+    },
+    {
+      "id": "custom-app",
+      "name": "Custom web app",
+      "summary": "Lee, a volunteer developer, offers to build it free.",
+      "from": "person",
+      "state": "set-aside",
+      "enteredAt": "lean",
+      "leftAt": "commit",
+      "because": "Priya and Sam agreed on Airtable. No other reason was given.",
+      "mustBeTrue": [
+        "Lee finishes it before June",
+        "Someone looks after it once Lee is no longer available",
+        "Running it and its texting cost no more than $1,500 a year"
+      ]
+    },
+    {
+      "id": "leave",
+      "name": "Leave it in spreadsheets",
+      "from": "person",
+      "state": "set-aside",
+      "enteredAt": "lean",
+      "leftAt": "commit",
+      "because": "Priya and Sam agreed on Airtable. No other reason was given.",
+      "mustBeTrue": ["Missed shifts fall without changing the tool"]
+    }
+  ],
+  "evidence": [
+    { "id": "e1", "text": "Spreadsheet errors caused 4 missed shifts last quarter.", "kind": "assumption", "source": "Told to the guide; no log opened", "bears": [{ "option": "leave", "way": "against" }], "ifWrong": "Changing the database may not reduce missed shifts", "addedBy": "person" },
+    { "id": "e2", "text": "Airtable costs about $1,080 a year for 4 seats.", "kind": "assumption", "source": "Told to the guide; no price page or quote opened", "bears": [{ "option": "airtable", "way": "for" }], "ifWrong": "The room left for texting changes", "addedBy": "person" },
+    { "id": "e3", "text": "Lee offers to build the app free and is available until June.", "kind": "assumption", "source": "Told to the guide; not confirmed with Lee", "bears": [{ "option": "custom-app", "way": "for" }], "ifWrong": "The custom app has no builder", "addedBy": "person" },
+    { "id": "e4", "text": "Airtable texting costs extra.", "kind": "assumption", "source": "Sam's belief; not checked", "bears": [{ "option": "airtable", "way": "against" }], "ifWrong": "The cost part of Sam's objection falls away", "addedBy": "person" },
+    { "id": "e5", "text": "Airtable would leave about $420 a year for texting and everything else.", "kind": "inference", "source": "$1,500 budget less $1,080 (e2)", "bears": [{ "option": "airtable", "way": "for" }], "addedBy": "model" },
+    { "id": "e6", "text": "After June, nobody is named to look after a custom app.", "kind": "inference", "source": "From Lee's availability (e3); no other developer was mentioned", "bears": [{ "option": "custom-app", "way": "against" }], "addedBy": "model" },
+    { "id": "e7", "text": "What texting costs with Airtable.", "kind": "unknown", "source": "Neither Priya nor Sam has checked", "addedBy": "person" },
+    { "id": "e8", "text": "What texting costs with a custom app.", "kind": "unknown", "source": "Neither Priya nor Sam has checked", "addedBy": "person" },
+    { "id": "e9", "text": "What a custom app would cost a year to run, apart from texting.", "kind": "unknown", "addedBy": "model" },
+    { "id": "e10", "text": "Whether Airtable or a custom app would have prevented the 4 missed shifts.", "kind": "unknown", "addedBy": "model" }
+  ],
+  "objections": [
+    {
+      "id": "o1",
+      "text": "Texting will be a problem.",
+      "from": "Sam",
+      "actor": "person",
+      "against": "airtable",
+      "state": "standing",
+      "cheapestTest": "Price a year of text reminders for 300 volunteers with Airtable and see whether the total stays within $1,500."
+    }
+  ],
+  "knowable": {
+    "answer": "partly",
+    "missing": [
+      "What texting costs with Airtable and with a custom app",
+      "Whether either would have prevented the missed shifts"
+    ],
+    "plan": [
+      {
+        "find": "What a year of text reminders to 300 volunteers costs with Airtable and with a custom app",
+        "how": "Suggested by the model: get a price for each before paying for seats. If Airtable seats and texting total $1,500 or less, the cost part of Sam's objection is answered. If they total more, Airtable breaks the budget; compare the custom app's own total, including running it. Owner not named",
+        "by": "2027-01-15"
+      }
+    ]
+  },
+  "decision": {
+    "choice": "airtable",
+    "by": ["Priya", "Sam"],
+    "at": "2026-11-24",
+    "reason": "Priya and Sam agreed on Airtable. They gave no joint reason, and Sam still thinks texting will be a problem.",
+    "basis": "thin"
+  },
+  "plan": {
+    "measures": [
+      { "measure": "Missed shifts caused by database errors, each quarter", "now": "4 (spreadsheet errors, last quarter)" }
+    ]
+  },
+  "reopenIf": [
+    { "sign": "Airtable seats and texting together come to more than $1,500 a year", "watcher": "Nobody yet", "seen": null }
+  ],
+  "events": [
+    { "at": "2026-11-24", "stage": "frame", "actor": "person", "who": "Priya, Sam", "what": "Question, 15 January deadline, $1,500 a year budget and 4 missed shifts given." },
+    { "at": "2026-11-24", "stage": "lean", "actor": "person", "who": "Priya, Sam", "what": "Priya leaned Airtable at 70%; Sam leaned custom app at 60%. Whether each view was formed unseen by the other is not known." },
+    { "at": "2026-11-24", "stage": "widen", "actor": "person", "who": "Priya, Sam", "what": "Three wants named, with fewer missed shifts first. The other two were not ranked." },
+    { "at": "2026-11-24", "stage": "weigh", "actor": "person", "who": "Priya, Sam", "what": "Neither has checked texting costs." },
+    { "at": "2026-11-24", "stage": "commit", "actor": "person", "who": "Priya, Sam", "what": "Agreed on Airtable." },
+    { "at": "2026-11-24", "stage": "commit", "actor": "person", "who": "Sam", "what": "Still thinks texting will be a problem." },
+    { "at": "2026-11-24T17:22", "stage": "commit", "actor": "model", "who": "Model", "what": "Wrote this record in one sitting after the people had left. The model set undo to costly, depth to standard, every criterion to want, and grounds to thin because texting costs are unchecked. It also wrote what must be true for each option, the texting check, the reopening sign and the measure. Nobody has confirmed these." },
+    { "at": "2026-11-24T17:22", "stage": "commit", "actor": "model", "who": "Model", "what": "Not done: a fourth option, ratings, an outside view, arguing each side, a failure story, a model view, final percentages, a joint reason, what is given up, forecasts, a named watcher, a review date, and reading the record back." }
+  ]
+}

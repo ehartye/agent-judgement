@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Volunteer database decision</title>
+<style>
+:root{--bg:#f6f7f4;--panel:#fff;--ink:#1d2a2a;--soft:#536262;--line:#d3dad6;--accent:#0b5d57;--warn:#8a4b08;--warnbg:#fdf3e3}
+@media (prefers-color-scheme:dark){:root{--bg:#141a1a;--panel:#1c2424;--ink:#e6ecea;--soft:#a3b2af;--line:#36423f;--accent:#6fcabf;--warn:#f0b968;--warnbg:#2d2517}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 "Segoe UI",system-ui,-apple-system,sans-serif}
+main{max-width:54rem;margin:0 auto;padding:2.5rem 1rem 4rem}
+h1{font:600 2.1rem/1.2 Georgia,serif;margin:.3rem 0 .8rem;text-wrap:balance}
+h2{font:600 1.3rem/1.3 Georgia,serif;margin:2.6rem 0 .7rem}
+p{margin:.4rem 0}.soft{color:var(--soft)}.small{font-size:.9rem}
+.chosen{font-size:1.15rem;border-left:4px solid var(--accent);padding:.2rem 0 .2rem 1rem;margin:1rem 0}
+.warn{background:var(--warnbg);border-left:4px solid var(--warn);padding:.8rem 1rem;margin:1rem 0}
+.warn strong{color:var(--warn)}
+.tag{font-size:.78rem;color:var(--soft);border:1px solid var(--line);border-radius:3px;padding:0 .35em;white-space:nowrap}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:.55rem .7rem;text-align:left;vertical-align:top}
+thead th{font-size:.9rem;color:var(--soft);font-weight:600}
+.opt{min-width:38rem}
+td.num{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+ol,ul{padding-left:1.3rem}li{margin:.6rem 0}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:.35rem 1rem}dt{color:var(--soft)}dd{margin:0}
+footer{margin-top:3rem;border-top:1px solid var(--line);padding-top:1rem}
+@media(max-width:34rem){dl{grid-template-columns:1fr}dd{margin-bottom:.5rem}h1{font-size:1.7rem}}
+@media print{:root{--bg:#fff;--panel:#fff;--ink:#000;--soft:#444;--line:#bbb;--accent:#0b5d57;--warn:#8a4b08;--warnbg:#fff}body{font-size:11pt}.noprint{display:none}main{padding:0}.opt{min-width:0}}
+</style>
+</head>
+<body>
+<main id="page"><noscript>This page needs JavaScript. The same content is in decision.json.</noscript></main>
+<script type="application/json" id="record">
+{
+  "format": "decision-record",
+  "format_version": 1,
+  "source_key": {
+    "stated": "Said by the people involved.",
+    "worked_out": "Arithmetic on stated figures, or a reading of a date they gave without a year.",
+    "suggested": "Added by the person writing this record. Priya and Sam have not agreed to it.",
+    "unknown": "Not said, or nobody has checked."
+  },
+  "title": "Where to keep the volunteer database",
+  "status": "agreed, with one open reservation",
+  "recorded_on": "2026-11-24",
+  "agreed_on": {
+    "value": null,
+    "source": "unknown",
+    "note": "On or before 24 November 2026. The exact day was not given."
+  },
+  "decide_by": {
+    "value": "2027-01-15",
+    "source": "worked_out",
+    "note": "They said 15 January. The year is read from the recording date."
+  },
+  "review_on": {
+    "value": "2027-05-24",
+    "source": "suggested",
+    "note": "Six months after this record was written. Lee is available until June, so little of that time would be left by then."
+  },
+  "question": "Should we move the volunteer database from spreadsheets to Airtable, move it to a custom web app, or leave it where it is?",
+  "decision": {
+    "chosen": "airtable",
+    "statement": "Move the volunteer database from spreadsheets to Airtable.",
+    "agreed_by": ["Priya", "Sam"],
+    "source": "stated",
+    "reason": {
+      "value": null,
+      "source": "unknown",
+      "note": "Not recorded. They agreed on Airtable, but did not say what settled it."
+    }
+  },
+  "reservation": {
+    "held_by": "Sam",
+    "statement": "Sam agreed to Airtable but still thinks texting will be a problem.",
+    "background": "Reminders by text matter to him, and before they agreed he thought Airtable texting was extra. Neither he nor Priya has checked the cost.",
+    "resolved": false,
+    "source": "stated"
+  },
+  "deciders": [
+    {
+      "name": "Priya",
+      "lean_before_agreeing": "airtable",
+      "confidence_before_agreeing": 0.7,
+      "confidence_after_agreeing": null,
+      "source": "stated"
+    },
+    {
+      "name": "Sam",
+      "lean_before_agreeing": "custom_app",
+      "confidence_before_agreeing": 0.6,
+      "confidence_after_agreeing": null,
+      "source": "stated"
+    }
+  ],
+  "goals": [
+    { "id": "missed_shifts", "label": "Fewer missed shifts", "most_important": true, "source": "stated" },
+    { "id": "upkeep", "label": "Low upkeep", "most_important": false, "source": "stated" },
+    { "id": "budget", "label": "Staying in budget", "most_important": false, "source": "stated" }
+  ],
+  "goals_note": "They did not say how upkeep and budget rank against each other.",
+  "starting_point": [
+    { "id": "volunteers", "label": "Volunteers", "value": 300, "display": "300", "source": "stated" },
+    { "id": "missed_shifts_last_quarter", "label": "Shifts missed last quarter because of spreadsheet errors", "value": 4, "display": "4", "source": "stated", "note": "Which three months that was, and how many shifts there were in all, was not given." },
+    { "id": "annual_budget_usd", "label": "Budget per year", "value": 1500, "display": "$1,500", "source": "stated" },
+    { "id": "airtable_annual_cost_usd", "label": "Airtable per year for 4 seats, about", "value": 1080, "display": "$1,080", "source": "stated" },
+    { "id": "left_for_texting_usd", "label": "Left per year for texting and anything else, about", "value": 420, "display": "$420", "source": "worked_out", "note": "$1,500 minus $1,080, or about $35 a month. Assumes the whole budget is for this." }
+  ],
+  "options": [
+    {
+      "id": "airtable",
+      "label": "Airtable",
+      "outcome": "chosen",
+      "against_goals": {
+        "missed_shifts": { "text": "Expected effect not stated.", "source": "unknown" },
+        "upkeep": { "text": "Not discussed.", "source": "unknown" },
+        "budget": { "text": "About $1,080 a year for 4 seats, against a $1,500 budget. Texting cost not checked.", "source": "stated" }
+      }
+    },
+    {
+      "id": "custom_app",
+      "label": "Custom web app",
+      "outcome": "not chosen",
+      "against_goals": {
+        "missed_shifts": { "text": "Sam leaned this way because text reminders matter. Size of the effect not stated.", "source": "stated" },
+        "upkeep": { "text": "Lee, a volunteer developer, is available until June. Who would look after the app afterwards was not said.", "source": "stated" },
+        "budget": { "text": "Lee offers to build it free. Hosting cost not stated. Texting cost not checked.", "source": "stated" }
+      }
+    },
+    {
+      "id": "leave",
+      "label": "Leave it in spreadsheets",
+      "outcome": "not chosen",
+      "against_goals": {
+        "missed_shifts": { "text": "Spreadsheet errors caused 4 missed shifts last quarter.", "source": "stated" },
+        "upkeep": { "text": "Not discussed.", "source": "unknown" },
+        "budget": { "text": "Current cost not stated.", "source": "unknown" }
+      }
+    }
+  ],
+  "open_questions": [
+    {
+      "question": "What would text reminders to 300 volunteers cost with Airtable, and with a custom app?",
+      "why_it_matters": "This is Sam's reservation, and nobody has checked. Airtable leaves about $420 a year for it.",
+      "check_by": { "value": "2027-01-15", "source": "suggested" },
+      "owner": null,
+      "answer": null
+    },
+    {
+      "question": "Would text reminders have prevented any of the 4 missed shifts?",
+      "why_it_matters": "The 4 were put down to spreadsheet errors. If a reminder would not have caught them, texting matters less to the main goal.",
+      "check_by": { "value": "2027-01-15", "source": "suggested" },
+      "owner": null,
+      "answer": null
+    },
+    {
+      "question": "Does Lee's offer stay open if Airtable texting does not work out, and what does \"until June\" mean exactly?",
+      "why_it_matters": "A custom app would have to be built in Lee's time. The later a problem is found, the less of it is left.",
+      "check_by": { "value": "2027-01-15", "source": "suggested" },
+      "owner": null,
+      "answer": null
+    },
+    {
+      "question": "Does the $1,080 Airtable plan hold everything needed for 300 volunteers and their shifts?",
+      "why_it_matters": "The plan's limits were not mentioned. A larger plan would eat into the $420.",
+      "check_by": { "value": "2027-01-15", "source": "suggested" },
+      "owner": null,
+      "answer": null
+    }
+  ],
+  "reopen_if": {
+    "source": "suggested",
+    "conditions": [
+      "Airtable plus texting would cost more than $1,500 a year.",
+      "Text reminders turn out to be needed to prevent missed shifts, and Airtable cannot provide them."
+    ]
+  },
+  "six_month_review": {
+    "reviewed_on": null,
+    "note": "The review questions are suggested. Four missed shifts in one quarter is a small number to compare against, so a change of one or two could be chance.",
+    "fields": [
+      { "id": "in_use_since", "label": "Date Airtable came into use", "expected": null, "actual": null },
+      { "id": "missed_shifts", "label": "Shifts missed in the latest full quarter because of database errors", "expected": "Fewer than 4", "actual": null },
+      { "id": "missed_shifts_other", "label": "Shifts missed in that quarter for any other reason", "expected": null, "actual": null },
+      { "id": "total_cost", "label": "Cost over a year, including texting", "expected": "$1,500 or less", "actual": null },
+      { "id": "texting", "label": "Was texting a problem?", "expected": "Sam thought it would be. Priya's view was not recorded.", "actual": null },
+      { "id": "upkeep", "label": "Time spent on upkeep, and by whom", "expected": "Low. No figure given.", "actual": null },
+      { "id": "decide_again", "label": "Would Priya and Sam each choose Airtable again?", "expected": null, "actual": null }
+    ]
+  }
+}
+</script>
+<script>
+const esc=v=>String(v).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const day=s=>s?new Date(s+"T12:00:00").toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"}):"Not recorded";
+const words={stated:"stated",worked_out:"worked out",suggested:"suggested",unknown:"not known"};
+const tag=s=>`<span class="tag">${esc(words[s]||s)}</span>`;
+const pct=n=>n==null?"Not recorded":Math.round(n*100)+"% sure";
+const blank='<span class="soft">Not filled in</span>';
+const dated=d=>`${day(d.value)} ${tag(d.source)}${d.note?`<br><span class="small soft">${esc(d.note)}</span>`:""}`;
+function render(r,src){
+  const name=id=>(r.options.find(o=>o.id===id)||{label:id}).label;
+  const html=`
+<p class="soft small">Decision record, written ${day(r.recorded_on)}. Status: ${esc(r.status)}.</p>
+<h1>${esc(r.title)}</h1>
+<p>${esc(r.question)}</p>
+<p class="chosen"><strong>${esc(r.decision.statement)}</strong><br>Agreed by ${r.decision.agreed_by.map(esc).join(" and ")}.</p>
+<div class="warn"><strong>${r.reservation.resolved?"Reservation, now resolved":"Open reservation"}: ${esc(r.reservation.held_by)}</strong>
+<p>${esc(r.reservation.statement)} ${esc(r.reservation.background)}</p></div>
+<dl>
+<dt>Reason chosen</dt><dd>${esc(r.decision.reason.value||r.decision.reason.note)}</dd>
+<dt>Agreed</dt><dd>${r.agreed_on.value?day(r.agreed_on.value):esc(r.agreed_on.note)}</dd>
+<dt>Deadline</dt><dd>${dated(r.decide_by)}</dd>
+<dt>Look back on</dt><dd>${dated(r.review_on)}</dd>
+</dl>
+
+<h2>Still to find out</h2>
+<p class="soft">These questions and dates are suggested. Where no owner is shown, nobody has been assigned.</p>
+<ol>${r.open_questions.map(q=>`<li><strong>${esc(q.question)}</strong><br>${esc(q.why_it_matters)}<br>
+<span class="small soft">By ${day(q.check_by.value)}. Owner: ${esc(q.owner||"none yet")}. Answer: ${esc(q.answer||"none yet")}.</span></li>`).join("")}</ol>
+<p><strong>Reopen the decision if</strong> ${tag(r.reopen_if.source)}</p>
+<ul>${r.reopen_if.conditions.map(c=>`<li>${esc(c)}</li>`).join("")}</ul>
+
+<h2>Where each person stood</h2>
+<div class="scroll"><table><thead><tr><th>Person</th><th>Leaned towards</th><th>Before agreeing</th><th>After agreeing</th></tr></thead><tbody>
+${r.deciders.map(d=>`<tr><td>${esc(d.name)}</td><td>${esc(name(d.lean_before_agreeing))}</td><td>${pct(d.confidence_before_agreeing)}</td><td>${pct(d.confidence_after_agreeing)}</td></tr>`).join("")}
+</tbody></table></div>
+
+<h2>What was known about each option</h2>
+<div class="scroll"><table class="opt"><thead><tr><th>Goal</th>${r.options.map(o=>`<th>${esc(o.label)} (${esc(o.outcome)})</th>`).join("")}</tr></thead><tbody>
+${r.goals.map(g=>`<tr><th>${esc(g.label)}${g.most_important?'<br><span class="small soft">most important</span>':""}</th>${r.options.map(o=>`<td>${esc(o.against_goals[g.id].text)}</td>`).join("")}</tr>`).join("")}
+</tbody></table></div>
+<p class="small soft">${esc(r.goals_note)}</p>
+
+<h2>Starting numbers</h2>
+<div class="scroll"><table><tbody>
+${r.starting_point.map(f=>`<tr><td class="num">${esc(f.display)}</td><td>${esc(f.label)} ${tag(f.source)}${f.note?`<br><span class="small soft">${esc(f.note)}</span>`:""}</td></tr>`).join("")}
+</tbody></table></div>
+
+<h2>Six-month review</h2>
+<p>${r.six_month_review.reviewed_on?"Reviewed "+day(r.six_month_review.reviewed_on)+".":"Not reviewed yet."} ${esc(r.six_month_review.note)}</p>
+<div class="scroll"><table><thead><tr><th>Question</th><th>Hoped for or expected</th><th>What happened</th></tr></thead><tbody>
+${r.six_month_review.fields.map(f=>`<tr><td>${esc(f.label)}</td><td>${f.expected==null?'<span class="soft">Not recorded</span>':esc(f.expected)}</td><td>${f.actual==null?blank:esc(f.actual)}</td></tr>`).join("")}
+</tbody></table></div>
+
+<footer class="small soft">
+<p>What the labels mean:</p>
+<ul>${Object.entries(r.source_key).map(([k,v])=>`<li>${tag(k)} ${esc(v)}</li>`).join("")}</ul>
+<p>Showing ${esc(src)}. To update the record, edit decision.json, then open it below.</p>
+<p class="noprint"><label>Show an edited decision.json: <input type="file" accept=".json,application/json" id="pick"></label> <span id="msg" role="status"></span></p>
+</footer>`;
+  document.getElementById("page").innerHTML=html;
+  document.getElementById("pick").onchange=async e=>{
+    const f=e.target.files[0];if(!f)return;
+    try{render(JSON.parse(await f.text()),"the file you opened, "+f.name)}
+    catch(err){document.getElementById("msg").textContent="That file could not be read as a decision record: "+err.message}
+  };
+}
+render(JSON.parse(document.getElementById("record").textContent),"the copy of decision.json saved in this page");
+</script>
+</body>
+</html>

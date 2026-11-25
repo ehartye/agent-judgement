@@ -20,8 +20,8 @@ Open a source before recording it as a fact. A summary of a source, or a note th
 done, is not the thing itself. Collect for and against on every option, the favourite included. An
 option with nothing against it has not been looked at yet.
 
-When several people know different things, gather separately, then pool the facts, then score. Sharing facts does
-not by itself change a choice.
+When several people know different things, gather separately, then pool the facts, then score. Pooling
+is not choosing.
 
 ## Look outside
 

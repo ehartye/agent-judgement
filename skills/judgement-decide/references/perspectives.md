@@ -29,7 +29,7 @@ willing to say there is not enough to decide. Judging something to be sound is k
 the authority to do it. (Crucible Agentics, "McKinsey, HBR, and Crucible", November 2026.)
 
 **What this guide takes from it:** frame first, let "not yet" be an answer, look for a real conflict
-before solving one, name the authority that is missing, and write down what would reopen the choice.
+before solving one, and write down what would reopen the choice.
 
 **What this guide adds:** each person's own view before anyone else's, forecasts that can be marked,
 and a date to come back and see.

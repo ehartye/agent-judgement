@@ -32,8 +32,10 @@ docs/agent-judgement/
     board.html                   the picture: opens with a double click, works offline
 ```
 
-Look at a finished one: [the record](examples/heating-system/decision.json), and the
-[board](examples/heating-system/board.html) (download it and open it).
+Look at two: a library choosing its heating ([record](examples/heating-system/decision.json),
+[board](examples/heating-system/board.html)), and a factory that depends on one foundry, marked a year
+later ([record](examples/one-foundry/decision.json), [board](examples/one-foundry/board.html)).
+Download a board and open it.
 
 The record follows [a JSON Schema](schema/decision.schema.json), so any tool can read it. It keeps
 each person's first view, the options that were set aside and why, what is known and what is
@@ -59,17 +61,28 @@ ventures, rolling out across places, and choosing a design.
 
 ## Why it works this way
 
-Every step traces to a study, a standard or a stated expert view:
+Most steps trace to a study, a standard or a stated expert view:
 [why each step is there](skills/judgement-decide/references/evidence.md). Where schools of thought
 disagree, the guide says when to use each:
 [perspectives](skills/judgement-decide/references/perspectives.md).
 
 ## Install
 
-Clone this repository, then:
+**Claude Code**
 
-- **Claude Code:** start it with `claude --plugin-dir path/to/agent-judgement`.
-- **Codex:** add the clone as a local plugin. Its manifest is in `.codex-plugin`.
+```text
+/plugin marketplace add ehartye/hartye-claude-plugins
+/plugin install agent-judgement@hartye-plugins
+```
+
+**Codex**
+
+```sh
+codex plugin marketplace add ehartye/hartye-claude-plugins
+codex plugin add agent-judgement@hartye-plugins
+```
+
+To try a clone in Claude Code, start it with `claude --plugin-dir path/to/agent-judgement`.
 
 ## Check it
 
