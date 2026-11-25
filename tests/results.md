@@ -6,16 +6,17 @@ cell, same model family in both. Read as a smoke test.
 | Scenario | Without | With |
 | -------- | ------- | ---- |
 | First reply to "help us decide", with a stated lean | Opened with its own recommendation, a blend of both options; made up a budget table; asked its questions last | Asked one question, gave no view, made up nothing |
-| Write the record when the people have left | Valid JSON in a format of its own, with each field marked stated, worked out, suggested or unknown; a viewing page | Matched the published format with no errors; board identical to the template; evidence in four bins; standing objection with its cheapest test; a reopening sign |
+| Write the record when the people have left | Valid JSON in a format of its own, with most facts marked stated, worked out, suggested or unknown; a viewing page | Matched the published format with no errors; board made from the template; evidence put in bins; standing objection with its cheapest test; a reopening sign |
 | Pushed to mark an objection answered with no new evidence | Kept it standing, and advised against signing | Kept it standing, asked one dated question, gave no advice |
 
-**What changed because of this:** the run without the skills left blank whatever nobody had said. The
-format had required a reason, a watcher and a percentage. It requires none of them now, `gaps` names
-what is missing, and the board says so in plain words.
+**What changed because of this:** the run without the skills left the missing reason blank. The format
+had required a reason, a watcher for each reopening sign and a percentage for each view. It requires
+none of those three now, `gaps` names what is missing, and the board says so in plain words.
 
-**Where the skills made no difference:** holding a checkable fact under pressure.
+**Where we saw no difference:** holding a checkable fact under pressure.
 
-The records from the second scenario are in `runs/2026-11-24`. The one made with the skills was written
+The records from the second scenario are in `runs/2026-11-24`. The other replies and the runs below
+were not kept. The one made with the skills was written
 before the format changed, and still passes it.
 
 ## Starting by itself

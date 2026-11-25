@@ -16,7 +16,7 @@ If it is still open, name the test and move on.
 
 ## 2. Find the real tension
 
-Look for two criteria that pull apart. Ask for the evidence that they truly conflict. Often they do
+Look for two criteria that pull apart. Ask for the evidence that they truly conflict. They may
 not, and that is a result. When they do, try to separate them:
 
 | By | Ask |
@@ -42,7 +42,7 @@ and the fact that would change it. Record it as a take with `actor: "model"`. Wi
 available, skip this step. Show it beside the people's first views, with where it differs and why. Its percentage is a note for
 the record. Never let a model's stated confidence settle anything.
 
-For deep decisions, a second opinion from a different vendor's model can help. However many models agree, count about two votes.
+For deep decisions, you may also ask a different vendor's model. However many models agree, count about two votes at most.
 
 ## 5. Check that it holds
 

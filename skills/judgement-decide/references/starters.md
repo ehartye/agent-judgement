@@ -36,7 +36,7 @@ Their words replace these.
 ## What to say and to whom
 
 - **Question shape:** Who must understand what, to do which thing?
-- **Often missed:** the person who decides is seldom the person who reads it.
+- **Often missed:** the person who decides may not be the person who reads it.
 - **Criteria to offer:** understood by the buyer; true and provable; different from the alternatives;
   cheap to test.
 - **Usual tension:** two audiences needing different messages. Try separating by place: two tracks.

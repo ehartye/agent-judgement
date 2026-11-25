@@ -21,7 +21,7 @@ screening starts.
    - one that fails in a different way from the favourite
    - one that drops the dearest criterion to win on the rest
    - one that a person affected by it would choose
-3. Aim for four to six. Two is a trap: ask what else.
+3. Aim for four to six. With two, ask what else.
 4. For each, write what must be true for it to work.
 
 A choice that "does both" is welcome once it says what each half gives up and what would show it

@@ -14,7 +14,7 @@ Say what you are trying to decide:
 
 > Help us decide whether to rebuild the site or repair the one we have.
 
-Easy to undo? It takes about ten minutes. Hard to undo? It takes you through all seven stages, and
+Easy to undo? Aim for ten minutes. Hard to undo? It takes you through all seven stages, and
 you can stop and pick up later.
 
 | Skill | What it does |
@@ -41,7 +41,7 @@ The record follows [a JSON Schema](schema/decision.schema.json), so any tool can
 each person's first view, the options that were set aside and why, what is known and what is
 assumed, the objections that still stand, what you expect to happen, and what did.
 
-## What people ask a decision tool for
+## What you might ask it for
 
 | You want | How this does it |
 | -------- | ---------------- |
@@ -61,8 +61,8 @@ ventures, rolling out across places, and choosing a design.
 
 ## Why it works this way
 
-Most steps trace to a study, a standard or a stated expert view:
-[why each step is there](skills/judgement-decide/references/evidence.md). Where schools of thought
+Many steps trace to a study, a standard or a stated expert view:
+[sources for many steps](skills/judgement-decide/references/evidence.md). Where schools of thought
 disagree, the guide says when to use each:
 [perspectives](skills/judgement-decide/references/perspectives.md).
 
