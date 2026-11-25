@@ -15,9 +15,25 @@ what is missing, and the board says so in plain words.
 
 **Where the skills made no difference:** holding a checkable fact under pressure.
 
-**Codex:** one read-only run of the first reply, told which file to read. It asked one question and gave
-no view. Its shell could not start, so it read the file another way. Installing the plugin in Codex and
-having it start by itself have not been tried.
+The records from the second scenario are in `runs/2026-11-24`. They were written before the format
+changed, and still pass it.
+
+## Starting by itself
+
+One run per prompt, each in a fresh session with the plugin installed and others beside it.
+
+| | Should start | Did | Should not start | Did |
+| - | ------------ | --- | ---------------- | --- |
+| Claude Code (Sonnet) | 6 | 6, the right skill each time | 6 | 0 |
+| Codex | 2 | 2, the right skill each time | 2 | 0 |
+
+Should: rebuild or repair a website; two job offers; a split committee; a four day week; a look back;
+a board. Should not: a speed question; a rename; a fact; a summary; tabs or spaces; writing up a choice
+already made. Codex ran one first reply and one look back of the first kind, and the speed question and
+the write-up of the second. In the look back it asked what happened before showing any forecast.
+
+Codex installed the plugin from a local marketplace. Its shell could not start in the test sandbox, so
+it read the skill files another way.
 
 **Not run yet:** a full decision with people from start to finish, a look back at a real outcome, and
 repeated runs.

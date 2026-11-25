@@ -32,8 +32,10 @@ docs/agent-judgement/
     board.html                   the picture: opens with a double click, works offline
 ```
 
-Look at a finished one: [the record](examples/heating-system/decision.json), and the
-[board](examples/heating-system/board.html) (download it and open it).
+Look at two: a library choosing its heating ([record](examples/heating-system/decision.json),
+[board](examples/heating-system/board.html)), and a factory that depends on one foundry, marked a year
+later ([record](examples/one-foundry/decision.json), [board](examples/one-foundry/board.html)).
+Download a board and open it.
 
 The record follows [a JSON Schema](schema/decision.schema.json), so any tool can read it. It keeps
 each person's first view, the options that were set aside and why, what is known and what is

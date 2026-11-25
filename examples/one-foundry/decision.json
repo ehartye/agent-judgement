@@ -1,0 +1,693 @@
+{
+  "schemaVersion": "1.0",
+  "id": "one-foundry",
+  "title": "Depending on one foundry",
+  "status": "reviewed",
+  "created": "2025-01-13",
+  "updated": "2026-02-03",
+  "frame": {
+    "question": "How do we keep shipping pumps if our foundry stops again?",
+    "whyNow": "A fire closed our only foundry for eleven weeks last autumn, and 340 orders went out late.",
+    "outcomeWanted": "A stop at any one supplier costs us days, and the insurance for that is something we can afford every year.",
+    "deciders": [
+      {
+        "name": "Dana",
+        "part": "decides"
+      },
+      {
+        "name": "Luis",
+        "part": "decides"
+      },
+      {
+        "name": "Wen",
+        "part": "advises"
+      },
+      {
+        "name": "Order desk",
+        "part": "is-affected"
+      }
+    ],
+    "decideBy": "2025-02-14",
+    "boundaries": [
+      "No more than $400,000 in the first year",
+      "No change to the approved pump designs"
+    ],
+    "undo": {
+      "class": "costly",
+      "how": "Tooling at a second foundry cannot be moved. Stock can be run down over a year."
+    },
+    "depth": "standard"
+  },
+  "map": {
+    "parts": [
+      {
+        "id": "foundry",
+        "name": "Our foundry",
+        "kind": "person",
+        "wants": "Steady volume, and no rival on its best parts"
+      },
+      {
+        "id": "buyers",
+        "name": "Growers who buy pumps",
+        "kind": "person",
+        "wants": "A pump before planting"
+      },
+      {
+        "id": "cash",
+        "name": "Cash tied up in stock",
+        "kind": "resource"
+      },
+      {
+        "id": "spring",
+        "name": "Spring peak",
+        "kind": "thing"
+      },
+      {
+        "id": "approval",
+        "name": "Design approval",
+        "kind": "rule"
+      }
+    ],
+    "links": [
+      {
+        "from": "spring",
+        "to": "foundry",
+        "effect": "hurts",
+        "note": "Six in ten castings are poured in ten weeks"
+      },
+      {
+        "from": "foundry",
+        "to": "buyers",
+        "effect": "helps"
+      },
+      {
+        "from": "cash",
+        "to": "buyers",
+        "effect": "helps",
+        "note": "Stock covers a short stop"
+      },
+      {
+        "from": "approval",
+        "to": "foundry",
+        "effect": "needs",
+        "note": "Every new source is inspected part by part"
+      }
+    ]
+  },
+  "takes": [
+    {
+      "who": "Dana",
+      "actor": "person",
+      "at": "2025-01-13T10:05",
+      "when": "first",
+      "independent": true,
+      "leaning": "dual",
+      "probability": 0.7,
+      "why": "We cannot have one door."
+    },
+    {
+      "who": "Luis",
+      "actor": "person",
+      "at": "2025-01-13T10:07",
+      "when": "first",
+      "independent": true,
+      "leaning": "stock",
+      "probability": 0.65,
+      "why": "Stock is the only thing we can undo."
+    },
+    {
+      "who": "Model",
+      "actor": "model",
+      "at": "2025-02-05T15:20",
+      "when": "first",
+      "independent": true,
+      "leaning": "split",
+      "probability": 0.55,
+      "why": "Two parts cause most of the delay, so the cost of a second source can be kept to those."
+    },
+    {
+      "who": "Dana",
+      "actor": "person",
+      "at": "2025-02-12T09:00",
+      "when": "final",
+      "independent": true,
+      "leaning": "split",
+      "probability": 0.75,
+      "why": "The late-order list moved me: two parts, 81% of it."
+    },
+    {
+      "who": "Luis",
+      "actor": "person",
+      "at": "2025-02-12T09:02",
+      "when": "final",
+      "independent": true,
+      "leaning": "split",
+      "probability": 0.65,
+      "why": "It costs less than half of two full sources."
+    }
+  ],
+  "criteria": [
+    {
+      "id": "ship",
+      "text": "Keeps shipping through a ten-week stop",
+      "kind": "must",
+      "order": 1,
+      "low": "Stops within two weeks",
+      "high": "No order more than two weeks late",
+      "fixedAt": "2025-01-15T09:00"
+    },
+    {
+      "id": "cost",
+      "text": "Yearly cost",
+      "kind": "want",
+      "order": 2,
+      "low": "Above $500,000",
+      "high": "Under $150,000",
+      "fixedAt": "2025-01-15T09:00"
+    },
+    {
+      "id": "spring",
+      "text": "In place before the spring peak of 2026",
+      "kind": "must",
+      "order": 3,
+      "low": "After it",
+      "high": "By the autumn before",
+      "fixedAt": "2025-01-15T09:00"
+    },
+    {
+      "id": "trust",
+      "text": "Keeps our foundry on our side",
+      "kind": "want",
+      "order": 4,
+      "low": "It drops us down its list",
+      "high": "It plans the spring with us",
+      "fixedAt": "2025-01-15T09:00"
+    }
+  ],
+  "options": [
+    {
+      "id": "dual",
+      "name": "Second foundry for every part",
+      "from": "person",
+      "state": "set-aside",
+      "enteredAt": "lean",
+      "leftAt": "weigh",
+      "because": "Above the first-year limit, and 31 parts could not be inspected in time."
+    },
+    {
+      "id": "stock",
+      "name": "Twelve weeks of stock",
+      "from": "person",
+      "state": "set-aside",
+      "enteredAt": "lean",
+      "leftAt": "test",
+      "because": "Covers a stop once, then takes a year to rebuild.",
+      "mustBeTrue": [
+        "Stops come years apart"
+      ]
+    },
+    {
+      "id": "split",
+      "name": "Second source for two parts, plus stock",
+      "from": "model",
+      "state": "chosen",
+      "enteredAt": "widen",
+      "mustBeTrue": [
+        "The two parts keep causing most of the delay",
+        "A second foundry passes inspection"
+      ]
+    },
+    {
+      "id": "inhouse",
+      "name": "Pour our own",
+      "from": "model",
+      "state": "set-aside",
+      "enteredAt": "widen",
+      "leftAt": "weigh",
+      "because": "No room on site for a furnace."
+    },
+    {
+      "id": "wait",
+      "name": "Change nothing this year",
+      "from": "person",
+      "state": "set-aside",
+      "enteredAt": "widen",
+      "leftAt": "weigh",
+      "because": "Fails the first must."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "e1",
+      "text": "Two of 31 cast parts were behind 81% of the late orders.",
+      "kind": "fact",
+      "source": "Late-order list, September to December",
+      "strength": "strong",
+      "bears": [
+        {
+          "option": "split",
+          "way": "for"
+        },
+        {
+          "option": "dual",
+          "way": "against"
+        }
+      ],
+      "addedBy": "person"
+    },
+    {
+      "id": "e2",
+      "text": "Two foundries quoted tooling for both parts at $118,000 and $131,000.",
+      "kind": "fact",
+      "source": "Quotes, 21 and 24 January",
+      "strength": "fair",
+      "bears": [
+        {
+          "option": "split",
+          "way": "for"
+        }
+      ],
+      "addedBy": "person"
+    },
+    {
+      "id": "e3",
+      "text": "Second source and five weeks of stock come to about $200,000 in a year.",
+      "kind": "inference",
+      "source": "From the quotes and the stock list",
+      "strength": "fair",
+      "bears": [
+        {
+          "option": "split",
+          "way": "for"
+        }
+      ],
+      "addedBy": "model"
+    },
+    {
+      "id": "e4",
+      "text": "Our foundry will not mind losing a fifth of two parts.",
+      "kind": "assumption",
+      "source": "Dana, after a call",
+      "strength": "weak",
+      "bears": [
+        {
+          "option": "split",
+          "way": "for"
+        }
+      ],
+      "ifWrong": "It puts other customers first in the spring.",
+      "addedBy": "person"
+    },
+    {
+      "id": "e5",
+      "text": "How often a foundry of this size stops for a month or more.",
+      "kind": "unknown",
+      "bears": [],
+      "addedBy": "model"
+    }
+  ],
+  "outsideView": {
+    "similarCases": "Six firms in the trade group that added a second source since 2019",
+    "whatHappened": "Four were late getting the second source approved, by three to seven months",
+    "source": "Trade group survey, 2024"
+  },
+  "ratings": [
+    {
+      "option": "dual",
+      "criterion": "ship",
+      "score": 5,
+      "because": "Either foundry can carry every part.",
+      "by": "Dana, Luis"
+    },
+    {
+      "option": "dual",
+      "criterion": "cost",
+      "score": 1,
+      "because": "About $520,000.",
+      "by": "Dana, Luis"
+    },
+    {
+      "option": "dual",
+      "criterion": "spring",
+      "score": 1,
+      "because": "31 inspections.",
+      "by": "Dana, Luis"
+    },
+    {
+      "option": "dual",
+      "criterion": "trust",
+      "score": 1,
+      "because": "Loses half the volume.",
+      "by": "Dana, Luis"
+    },
+    {
+      "option": "stock",
+      "criterion": "ship",
+      "score": 4,
+      "because": "Covers twelve weeks, once.",
+      "by": "Dana, Luis"
+    },
+    {
+      "option": "stock",
+      "criterion": "cost",
+      "score": 3,
+      "because": "About $260,000 in cash and space.",
+      "by": "Dana, Luis"
+    },
+    {
+      "option": "stock",
+      "criterion": "spring",
+      "score": 4,
+      "because": "Built up over the summer.",
+      "by": "Dana, Luis"
+    },
+    {
+      "option": "stock",
+      "criterion": "trust",
+      "score": 5,
+      "because": "More orders for them.",
+      "by": "Dana, Luis"
+    },
+    {
+      "option": "split",
+      "criterion": "ship",
+      "score": 4,
+      "because": "The two worst parts have a second door.",
+      "by": "Dana, Luis"
+    },
+    {
+      "option": "split",
+      "criterion": "cost",
+      "score": 4,
+      "because": "About $200,000.",
+      "by": "Dana, Luis"
+    },
+    {
+      "option": "split",
+      "criterion": "spring",
+      "score": 3,
+      "because": "If inspection goes well.",
+      "by": "Dana, Luis"
+    },
+    {
+      "option": "split",
+      "criterion": "trust",
+      "score": 3,
+      "because": "A fifth of two parts.",
+      "by": "Dana, Luis"
+    },
+    {
+      "option": "inhouse",
+      "criterion": "ship",
+      "score": 4,
+      "because": "Ours to run.",
+      "by": "Dana, Luis"
+    },
+    {
+      "option": "inhouse",
+      "criterion": "cost",
+      "score": 1,
+      "because": "No room for a furnace.",
+      "by": "Dana, Luis"
+    },
+    {
+      "option": "inhouse",
+      "criterion": "spring",
+      "score": 1,
+      "because": "Two years.",
+      "by": "Dana, Luis"
+    },
+    {
+      "option": "inhouse",
+      "criterion": "trust",
+      "score": 1,
+      "because": "We become a rival.",
+      "by": "Dana, Luis"
+    },
+    {
+      "option": "wait",
+      "criterion": "ship",
+      "score": 1,
+      "because": "As last autumn.",
+      "by": "Dana, Luis"
+    },
+    {
+      "option": "wait",
+      "criterion": "cost",
+      "score": 5,
+      "because": "Nothing.",
+      "by": "Dana, Luis"
+    },
+    {
+      "option": "wait",
+      "criterion": "spring",
+      "score": 5,
+      "because": "Nothing to do.",
+      "by": "Dana, Luis"
+    },
+    {
+      "option": "wait",
+      "criterion": "trust",
+      "score": 4,
+      "because": "No change.",
+      "by": "Dana, Luis"
+    }
+  ],
+  "tensions": [
+    {
+      "between": [
+        "ship",
+        "cost"
+      ],
+      "real": true,
+      "evidence": "A second source for every part is above the limit.",
+      "resolvedBy": "scale",
+      "result": "Second source only for the two parts that cause most of the delay.",
+      "gaveUp": "Cover for the other 29 parts beyond five weeks."
+    },
+    {
+      "between": [
+        "ship",
+        "trust"
+      ],
+      "real": false,
+      "evidence": "The foundry asked us to take some spring volume elsewhere."
+    }
+  ],
+  "objections": [
+    {
+      "id": "o1",
+      "text": "The second foundry will take longer to approve than you think.",
+      "from": "Wen",
+      "actor": "person",
+      "against": "split",
+      "state": "standing",
+      "cheapestTest": "Send one impeller for inspection before ordering the tooling."
+    },
+    {
+      "id": "o2",
+      "text": "Stock hides the problem until it runs out.",
+      "from": "Dana",
+      "actor": "person",
+      "against": "stock",
+      "state": "changed-the-choice",
+      "settledBy": "Last autumn’s eleven weeks would have used all twelve."
+    },
+    {
+      "id": "o3",
+      "text": "Our foundry will drop us down its list.",
+      "from": "Luis",
+      "actor": "person",
+      "against": "split",
+      "state": "answered",
+      "settledBy": "Its letter of 3 February asks us to move some spring volume."
+    }
+  ],
+  "failureStories": [
+    {
+      "story": "It is spring 2026. The second foundry is still not approved and the stock went to a big order in January.",
+      "firstSign": "No inspection date by May.",
+      "guard": "Stock for the two parts is released only by Dana."
+    }
+  ],
+  "knowable": {
+    "answer": "partly",
+    "missing": [
+      "How often foundries stop"
+    ],
+    "plan": []
+  },
+  "decision": {
+    "choice": "split",
+    "by": [
+      "Dana",
+      "Luis"
+    ],
+    "at": "2025-02-12T09:20",
+    "reason": "It opens a second door for the two parts that hurt us, at a price we can pay every year.",
+    "basis": "fair",
+    "givingUp": "Cover for the other 29 parts beyond five weeks.",
+    "riskOwner": "Dana",
+    "firstStep": "Send one impeller to each foundry for inspection this month.",
+    "keepReversible": "Order tooling for one part first."
+  },
+  "plan": {
+    "steps": [
+      {
+        "step": "Trial impeller at both foundries",
+        "owner": "Wen",
+        "by": "2025-03-14",
+        "gate": "One passes, or we talk again",
+        "done": true
+      },
+      {
+        "step": "Tooling for both parts",
+        "owner": "Luis",
+        "by": "2025-04-30",
+        "done": true
+      },
+      {
+        "step": "Five weeks of stock for all 31 parts",
+        "owner": "Dana",
+        "by": "2025-10-01",
+        "done": true
+      }
+    ],
+    "measures": [
+      {
+        "measure": "Orders more than two weeks late for castings",
+        "now": "340",
+        "target": "0"
+      },
+      {
+        "measure": "Parts with a second source",
+        "now": "0",
+        "target": "2"
+      }
+    ]
+  },
+  "forecasts": [
+    {
+      "claim": "No order ships more than two weeks late because of castings",
+      "probability": 0.75,
+      "by": "Dana",
+      "checkOn": "2026-01-31",
+      "howWeWillKnow": "Shipping log, late orders by cause.",
+      "cameTrue": true,
+      "note": "Zero in the log."
+    },
+    {
+      "claim": "The second foundry passes first inspection on both parts by June",
+      "probability": 0.7,
+      "by": "Wen",
+      "checkOn": "2025-06-30",
+      "howWeWillKnow": "Signed inspection reports.",
+      "cameTrue": false,
+      "note": "The housing passed in May. The impeller passed in September."
+    },
+    {
+      "claim": "The extra yearly cost stays under $210,000",
+      "probability": 0.6,
+      "by": "Luis",
+      "checkOn": "2026-01-31",
+      "howWeWillKnow": "Year-end cost report.",
+      "cameTrue": true,
+      "note": "$188,000."
+    },
+    {
+      "claim": "Our first foundry keeps its prices within 5%",
+      "probability": 0.85,
+      "by": "Luis",
+      "checkOn": "2026-01-31",
+      "howWeWillKnow": "Invoices.",
+      "cameTrue": true,
+      "note": "Up 3%."
+    }
+  ],
+  "reopenIf": [
+    {
+      "sign": "No inspection date by the end of May",
+      "watcher": "Wen",
+      "seen": null
+    },
+    {
+      "sign": "A third part passes 15% of late orders",
+      "watcher": "Dana",
+      "seen": null
+    }
+  ],
+  "review": {
+    "on": "2026-02-03",
+    "doneAt": "2026-02-03",
+    "whatHappened": "No late orders for castings. The housing was approved in May and the impeller in September, three months after we expected. The first foundry stopped for nine days in November and nobody outside noticed.",
+    "process": "Yes. Wen’s objection was the right one and the trial it asked for was run. We heard that four of six firms were late and still forecast June.",
+    "luck": "The stop came after the impeller was approved. Three months earlier it would have tested the stock.",
+    "lesson": "When the outside view gives a delay, start the forecast from it.",
+    "brier": 0.184
+  },
+  "events": [
+    {
+      "at": "2025-01-13T10:00",
+      "stage": "frame",
+      "actor": "person",
+      "who": "Dana",
+      "what": "Widened the question from which foundry to how we keep shipping."
+    },
+    {
+      "at": "2025-01-13T10:07",
+      "stage": "lean",
+      "actor": "person",
+      "who": "Luis",
+      "what": "Both first takes written before either was shown."
+    },
+    {
+      "at": "2025-01-15T09:00",
+      "stage": "widen",
+      "actor": "person",
+      "who": "Dana, Luis",
+      "what": "Four criteria fixed and ordered."
+    },
+    {
+      "at": "2025-01-16T11:00",
+      "stage": "widen",
+      "actor": "model",
+      "who": "Model",
+      "what": "Added two options: split, and pour our own."
+    },
+    {
+      "at": "2025-01-29T14:00",
+      "stage": "weigh",
+      "actor": "person",
+      "who": "Dana, Luis",
+      "what": "Rated one criterion at a time; three options set aside."
+    },
+    {
+      "at": "2025-02-05T15:20",
+      "stage": "test",
+      "actor": "model",
+      "who": "Model",
+      "what": "Gave its own view from a fresh start, without the takes or ratings."
+    },
+    {
+      "at": "2025-02-06T10:00",
+      "stage": "test",
+      "actor": "person",
+      "who": "Dana",
+      "what": "Stock set aside after the eleven-week check."
+    },
+    {
+      "at": "2025-02-12T09:20",
+      "stage": "commit",
+      "actor": "person",
+      "who": "Dana, Luis",
+      "what": "Chose split; four forecasts and two reopening signs recorded."
+    },
+    {
+      "at": "2026-02-03T10:00",
+      "stage": "return",
+      "actor": "person",
+      "who": "Dana, Luis",
+      "what": "Said what happened first, then marked four forecasts."
+    }
+  ]
+}
