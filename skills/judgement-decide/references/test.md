@@ -42,8 +42,7 @@ and the fact that would change it. Record it as a take with `actor: "model"`. Wi
 available, skip this step. Show it beside the people's first views, with where it differs and why. Its percentage is a note for
 the record. Never let a model's stated confidence settle anything.
 
-For deep decisions, a second opinion from a different vendor's model is worth more than several
-from the same one. Agreement between models is one vote, not many.
+For deep decisions, a second opinion from a different vendor's model can help. However many models agree, count about two votes.
 
 ## 5. Check that it holds
 

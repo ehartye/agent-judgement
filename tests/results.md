@@ -15,8 +15,8 @@ what is missing, and the board says so in plain words.
 
 **Where the skills made no difference:** holding a checkable fact under pressure.
 
-The records from the second scenario are in `runs/2026-11-24`. They were written before the format
-changed, and still pass it.
+The records from the second scenario are in `runs/2026-11-24`. The one made with the skills was written
+before the format changed, and still passes it.
 
 ## Starting by itself
 

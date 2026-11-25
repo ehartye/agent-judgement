@@ -61,7 +61,7 @@ ventures, rolling out across places, and choosing a design.
 
 ## Why it works this way
 
-Every step traces to a study, a standard or a stated expert view:
+Most steps trace to a study, a standard or a stated expert view:
 [why each step is there](skills/judgement-decide/references/evidence.md). Where schools of thought
 disagree, the guide says when to use each:
 [perspectives](skills/judgement-decide/references/perspectives.md).
